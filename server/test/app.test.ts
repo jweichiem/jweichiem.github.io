@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import { expect, test } from 'vitest';
+import { createHtmlTemplateHandler } from '../shared/createHtmlTemplateHandler.ts';
 import type { Renderer } from '../shared/types.ts';
 
 const createTestApp = (
@@ -8,24 +9,7 @@ const createTestApp = (
 ) => {
 	const app = Fastify();
 	const method = mode === 'development' ? app.all.bind(app) : app.get.bind(app);
-
-	method('/*', async (request, reply) => {
-		try {
-			const template = await renderer.loadTemplate(request.url);
-			const transformedTemplate = renderer.transformTemplate
-				? await renderer.transformTemplate(request.url, template)
-				: template;
-			const appHtml = await renderer.render(request.url);
-			const html = transformedTemplate.replace('<!--app-html-->', appHtml);
-
-			reply.type('text/html').send(html);
-		} catch (error) {
-			if (error instanceof Error && renderer.fixStacktrace) {
-				renderer.fixStacktrace(error);
-			}
-			reply.code(500).type('text/plain').send(String(error));
-		}
-	});
+	method('/*', createHtmlTemplateHandler(renderer));
 
 	return app;
 };
