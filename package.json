@@ -5,13 +5,22 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"dev:ssr": "node --experimental-strip-types server/index.ts",
+		"build": "tsc -b && npm run build:ssr",
+		"build:ssr": "vite build --outDir dist/client && vite build --ssr src/entry-server.tsx --outDir dist/server",
+		"build:ssg": "npm run build && node --experimental-strip-types server/static-site-generator.ts",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"start:ssr": "NODE_ENV=production node --experimental-strip-types server/index.ts",
+		"test": "vitest",
+		"test:server": "vitest run --config vitest.config.ts"
 	},
 	"dependencies": {
+		"@fastify/middie": "^9.3.1",
+		"@fastify/static": "^9.0.0",
+		"fastify": "^5.8.2",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0"
 	},
@@ -24,6 +33,7 @@
 		"babel-plugin-react-compiler": "^1.0.0",
 		"sass": "1.97.3",
 		"typescript": "~5.9.3",
-		"vite": "^7.3.1"
+		"vite": "^7.3.1",
+		"vitest": "^4.0.18"
 	}
 }

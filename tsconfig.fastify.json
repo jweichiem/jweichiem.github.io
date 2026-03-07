@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.fastify.tsbuildinfo",
+		"target": "ES2017",
+		"lib": ["ES2017"],
+		"module": "NodeNext",
+		"types": ["node"],
+		"skipLibCheck": true,
+
+		/* Node mode */
+		"moduleResolution": "NodeNext",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"noEmit": true,
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"include": ["server/**/*.ts"]
+}
