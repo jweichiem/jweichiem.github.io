@@ -3,13 +3,13 @@ import './style.scss';
 
 const About = () => {
 	return (
-		<div className="page">
+		<section className="section">
 			<h1>About</h1>
 			<p>A short page with route-specific metadata.</p>
 			<p>
 				<Link href="/">Back to home</Link>
 			</p>
-		</div>
+		</section>
 	);
 };
 

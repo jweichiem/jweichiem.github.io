@@ -1,0 +1,99 @@
+// 4px-based spacing scale
+$space-0: 0;
+$space-25: 0.25rem;
+$space-50: 0.5rem;
+$space-75: 0.75rem;
+$space-100: 1rem;
+$space-125: 1.25rem;
+$space-150: 1.5rem;
+$space-200: 2rem;
+$space-250: 2.5rem;
+$space-300: 3rem;
+$space-350: 3.5rem;
+$space-400: 4rem;
+$max-layout-width: 80rem;
+
+// Neutral scale
+$neutral-100: rgba(255, 255, 255, 1); // #FFFFFF
+$neutral-200: rgba(247, 248, 250, 1); // #F7F8FA
+$neutral-300: rgba(89, 89, 89, 1); // #595959
+$neutral-400: rgba(68, 68, 68, 1); // #444444
+$neutral-500: rgba(47, 47, 47, 1); // #2F2F2F
+
+// Main color scale
+$main-100: rgba(236, 245, 255, 1); // #ECF5FF
+$main-200: rgba(213, 231, 252, 1); // #D5E7FC
+$main-300: rgba(176, 210, 247, 1); // #B0D2F7
+$main-400: rgba(108, 171, 236, 1); // #6CABEC
+$main-500: rgba(44, 110, 184, 1); // #2C6EB8
+
+@mixin spacing-vars {
+  --space-0: #{$space-0};
+  --space-25: #{$space-25};
+  --space-50: #{$space-50};
+  --space-75: #{$space-75};
+  --space-100: #{$space-100};
+  --space-125: #{$space-125};
+  --space-150: #{$space-150};
+  --space-200: #{$space-200};
+  --space-250: #{$space-250};
+  --space-300: #{$space-300};
+  --space-350: #{$space-350};
+  --space-400: #{$space-400};
+}
+
+@mixin layout-vars {
+  --max-layout-width: #{$max-layout-width};
+}
+
+@mixin color-vars {
+  --neutral-100: #{$neutral-100};
+  --neutral-200: #{$neutral-200};
+  --neutral-300: #{$neutral-300};
+  --neutral-400: #{$neutral-400};
+  --neutral-500: #{$neutral-500};
+
+  --main-100: #{$main-100};
+  --main-200: #{$main-200};
+  --main-300: #{$main-300};
+  --main-400: #{$main-400};
+  --main-500: #{$main-500};
+
+  // Compatibility aliases during transition
+  --color-main: var(--main-300);
+  --color-secondary: var(--main-100);
+  --color-tertiary: var(--neutral-500);
+}
+
+@mixin tablet-up {
+  @media screen and (min-width: 37.5em) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media screen and (min-width: 60em) {
+    @content;
+  }
+}
+
+@mixin page-layout {
+  .page-layout {
+    margin: 0 auto;
+    max-width: var(--max-layout-width);
+    width: 100%;
+    padding-inline: var(--space-125);
+  }
+
+  @include tablet-up {
+    .page-layout {
+      padding-inline: var(--space-250);
+    }
+  }
+
+  @include desktop-up {
+    .page-layout {
+      padding-inline: var(--space-350);
+    }
+  }
+}

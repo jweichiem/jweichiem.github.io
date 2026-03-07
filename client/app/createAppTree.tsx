@@ -1,5 +1,7 @@
 import { Router } from 'wouter';
-import App from './App.tsx';
+import Footer from './page-footer/index.tsx';
+import Header from './page-header/index.tsx';
+import Main from './page-main/index.tsx';
 
 interface CreateAppTreeOptions {
 	pathname: string;
@@ -9,7 +11,9 @@ interface CreateAppTreeOptions {
 export const createAppTree = ({ pathname, search }: CreateAppTreeOptions) => {
 	return (
 		<Router ssrPath={pathname} ssrSearch={search}>
-			<App />
+			<Header />
+			<Main />
+			<Footer />
 		</Router>
 	);
 };

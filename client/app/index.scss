@@ -1,0 +1,36 @@
+@use '../_tokens.scss' as tokens;
+
+:root {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  @include tokens.spacing-vars;
+  @include tokens.layout-vars;
+  @include tokens.color-vars;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+a,
+button,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin-top: var(--space-50);
+  margin-bottom: var(--space-50);
+}
+
+p,
+span {
+  font-weight: 500;
+}
+
+@include tokens.page-layout;
