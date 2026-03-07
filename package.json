@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"dev:ssr": "node --experimental-strip-types server/index.ts",
 		"build": "tsc -b && npm run build:ssr",
-		"build:ssr": "vite build --outDir dist/client && vite build --ssr src/entry-server.tsx --outDir dist/server",
+		"build:ssr": "vite build --outDir dist/client && vite build --ssr client/entry-server.tsx --outDir dist/server",
 		"build:ssg": "npm run build && node --experimental-strip-types server/static-site-generator.ts",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
