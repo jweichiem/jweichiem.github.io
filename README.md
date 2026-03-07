@@ -1,32 +1,39 @@
-# CV Website
+# Joakim CV
 
-This website was built based on the Vite + Typescript + React compiler template from `npm create vite`.
+Personal website built with React + Vite on the frontend and Fastify for SSR/SSG.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- React 19
+- Vite 7
+- Fastify 5
+- TypeScript
+- Wouter
+- Biome (lint + format)
+- Vitest (server tests)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Project Structure
 
-Note: This will impact Vite dev & build performances.
+- `client/`: frontend application code
+- `client/app/`: app shell, route registry, shared app logic
+- `client/pages/`: page components with colocated `meta.ts` and `style.scss`
+- `client/entry/`: client and server entrypoints
+- `server/`: Fastify SSR server, environment configs, SSG script, tests
+- `index.html`: shared HTML template for both client and SSR rendering
 
-## Linting and Formatting
+## Scripts
 
-This repo uses [Biome](https://biomejs.dev/) for linting and formatting.
+- `npm run dev`: Vite development server
+- `npm run dev:ssr`: Fastify SSR server in development mode
+- `npm run build`: TypeScript build + client/SSR bundle build
+- `npm run build:ssg`: build then prerender static routes
+- `npm run start:ssr`: start production SSR server
+- `npm run test:server`: run server test suite
+- `npm run lint`: run Biome checks
+- `npm run lint:fix`: run Biome with auto-fixes
+- `npm run format`: run Biome write pass (includes import ordering)
 
-```bash
-npm run lint
-```
+## Notes
 
-To apply automatic fixes:
-
-```bash
-npm run lint:fix
-```
-
-To format all files:
-
-```bash
-npm run format
-```
+- Route metadata (`title`, `description`) is generated from the route registry and applied in both client navigation and SSR output.
+- Static prerender routes default to the routes marked for prerendering in the app route registry.
