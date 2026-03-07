@@ -12,6 +12,7 @@ export interface RouteMeta {
 }
 
 export interface AppRoute {
+	label: string;
 	path: string;
 	component: ComponentType;
 	meta: RouteMeta;
@@ -26,12 +27,14 @@ export interface FallbackRoute {
 export const appRoutes: AppRoute[] = [
 	{
 		path: '/',
+		label: 'Home',
 		component: Home,
 		meta: homeMeta,
 		prerender: true,
 	},
 	{
 		path: '/about',
+		label: 'About',
 		component: About,
 		meta: aboutMeta,
 		prerender: true,

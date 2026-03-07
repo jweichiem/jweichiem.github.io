@@ -1,4 +1,24 @@
 .page-header {
   background: var(--main-100);
   color: var(--neutral-500);
+
+  &__logo {
+    padding: var(--space-100) 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: var(--space-100);
+    list-style-type: none;
+    padding: var(--space-100) 0;
+    margin: 0;
+  }
+
 }
