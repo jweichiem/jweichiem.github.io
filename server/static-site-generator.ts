@@ -11,15 +11,17 @@ const {
 	render,
 } = await registerAssets(projectRoot);
 
-const routes = (process.env.PRERENDER_ROUTES ?? '/')
+const routes = (process.env.PRERENDER_ROUTES ?? '/,/about')
 	.split(',')
 	.map((route) => route.trim())
 	.filter(Boolean)
 	.map((route) => (route.startsWith('/') ? route : `/${route}`));
 
 for (const route of routes) {
-	const appHtml = await render(route);
-	const html = template.replace('<!--app-html-->', appHtml);
+	const renderedPage = await render(route);
+	const html = template
+		.replace('<!--app-head-->', renderedPage.headHtml ?? '')
+		.replace('<!--app-html-->', renderedPage.appHtml);
 
 	const outputPath =
 		route === '/'

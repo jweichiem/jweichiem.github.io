@@ -1,5 +1,15 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import type { Renderer } from './types.ts';
+import type { RenderedPage, Renderer } from './types.ts';
+
+const normalizeRenderedPage = (
+	renderedPage: string | RenderedPage,
+): RenderedPage => {
+	if (typeof renderedPage === 'string') {
+		return { appHtml: renderedPage };
+	}
+
+	return renderedPage;
+};
 
 export const createHtmlTemplateHandler =
 	(renderer: Renderer) =>
@@ -9,8 +19,12 @@ export const createHtmlTemplateHandler =
 			const transformedTemplate = renderer.transformTemplate
 				? await renderer.transformTemplate(request.url, template)
 				: template;
-			const appHtml = await renderer.render(request.url);
-			const html = transformedTemplate.replace('<!--app-html-->', appHtml);
+			const renderedPage = normalizeRenderedPage(
+				await renderer.render(request.url),
+			);
+			const html = transformedTemplate
+				.replace('<!--app-head-->', renderedPage.headHtml ?? '')
+				.replace('<!--app-html-->', renderedPage.appHtml);
 
 			reply.type('text/html').send(html);
 		} catch (error) {

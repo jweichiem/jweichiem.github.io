@@ -4,9 +4,12 @@ import { pathToFileURL } from 'node:url';
 import fastifyStatic from '@fastify/static';
 import type { FastifyInstance } from 'fastify';
 import { resolveServerPaths } from '../../shared/paths.ts';
+import type { RenderedPage } from '../../shared/types.ts';
 
 type RenderModule = {
-	render: (url: string) => string | Promise<string>;
+	render: (
+		url: string,
+	) => string | RenderedPage | Promise<string | RenderedPage>;
 };
 
 export const registerAssets = async (
@@ -26,9 +29,17 @@ export const registerAssets = async (
 		pathToFileURL(serverEntry).href
 	)) as RenderModule;
 
+	const renderPage = async (url: string): Promise<RenderedPage> => {
+		const rendered = await Promise.resolve(render(url));
+		if (typeof rendered === 'string') {
+			return { appHtml: rendered };
+		}
+		return rendered;
+	};
+
 	return {
 		clientDist,
 		template,
-		render: async (url: string) => Promise.resolve(render(url)),
+		render: renderPage,
 	};
 };
