@@ -7,11 +7,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '..');
 const {
 	clientDist: clientDistPath,
+	prerenderRoutes,
 	template,
 	render,
 } = await registerAssets(projectRoot);
 
-const routes = (process.env.PRERENDER_ROUTES ?? '/,/about')
+const defaultRoutes = prerenderRoutes.join(',');
+const routes = (process.env.PRERENDER_ROUTES ?? defaultRoutes)
 	.split(',')
 	.map((route) => route.trim())
 	.filter(Boolean)

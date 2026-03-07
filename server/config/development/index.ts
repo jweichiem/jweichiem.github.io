@@ -36,7 +36,7 @@ export const fastifyAppConfig = async (
 		transformTemplate: (url, template) =>
 			vite.transformIndexHtml(url, template),
 		render: async (url) => {
-			const { render } = await vite.ssrLoadModule('/client/entry-server.tsx');
+			const { render } = await vite.ssrLoadModule('/client/entry/server.tsx');
 			return render(url);
 		},
 		fixStacktrace: (error) => vite.ssrFixStacktrace(error),

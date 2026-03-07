@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import './Home.scss';
+import './style.scss';
 
 const Home = () => {
 	return (

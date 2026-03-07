@@ -10,6 +10,7 @@ type RenderModule = {
 	render: (
 		url: string,
 	) => string | RenderedPage | Promise<string | RenderedPage>;
+	prerenderRoutes?: string[];
 };
 
 export const registerAssets = async (
@@ -25,7 +26,7 @@ export const registerAssets = async (
 	}
 
 	const template = await readFile(path.join(clientDist, 'index.html'), 'utf-8');
-	const { render } = (await import(
+	const { prerenderRoutes, render } = (await import(
 		pathToFileURL(serverEntry).href
 	)) as RenderModule;
 
@@ -39,6 +40,7 @@ export const registerAssets = async (
 
 	return {
 		clientDist,
+		prerenderRoutes: prerenderRoutes ?? ['/'],
 		template,
 		render: renderPage,
 	};
