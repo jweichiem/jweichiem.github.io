@@ -1,0 +1,128 @@
+@use '../../_tokens.scss' as tokens;
+
+.profile-banner {
+  background: var(--main-100);
+
+  &__layout {
+    display: flex;
+    gap: var(--space-100);
+    padding-block: var(--space-150);
+  }
+
+  &__avatar {
+    width: 12.5rem;
+    height: auto;
+    max-width: 100%;
+
+    border-radius: var(--radius-200);
+    overflow: hidden;
+    min-width: 5rem;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__contact-details {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-100);
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    align-self: center;
+  }
+
+  &__career-description {
+    display: block;
+    font-size: .5em;
+    margin-block: 1em;
+  }
+}
+
+@include tokens.tablet-up {
+  .profile {
+    gap: var(--space-150);
+    padding-block: var(--space-150);
+  }
+}
+
+@include tokens.desktop-up {
+  .profile {
+    gap: var(--space-200);
+    padding-block: var(--space-200);
+  }
+}
+
+.home-layout {
+  padding-block-start: var(--space-100);
+}
+
+.card {
+  padding: var(--space-100);
+  border: .125rem solid var(--neutral-200);
+  border-radius: var(--radius-200);
+}
+
+.work-experience {
+  padding-inline-start: var(--space-150);
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    height: .5rem;
+    width: .5rem;
+    background: var(--main-500);
+    position: absolute;
+    inset-inline-start: var(--space-50);
+    inset-block-start: var(--space-25);
+    border-radius: var(--radius-100);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset-inline-start: var(--space-50);
+    border-left: 0.0625rem solid var(--neutral-200);
+    inset-block-end: -1.5rem;
+    inset-block-start: var(--space-75);
+    margin-inline-start: calc(var(--space-25) - 0.0625rem);
+    width: 0.0625rem;
+  }
+
+  &:last-child::after {
+    inset-block-end: 0;
+  }
+
+  &__role {
+    display: flex;
+    gap: var(--space-100);
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__role-info {
+    min-width: 12.5rem;
+  }
+
+  &__role-description {
+    p {
+      margin-block-start: 0;
+    }
+  }
+
+  &__company {
+    margin-block-start: 0;
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 7.5rem;
+  }
+}

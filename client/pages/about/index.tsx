@@ -1,14 +1,10 @@
-import { Link } from 'wouter';
 import './style.scss';
 
 const About = () => {
 	return (
-		<section className="section">
-			<h1>About</h1>
-			<p>A short page with route-specific metadata.</p>
-			<p>
-				<Link href="/">Back to home</Link>
-			</p>
+		<section className="section page-layout">
+			<h1>About this website</h1>
+			<p>This website was built to showcase a bit of my work and experience.</p>
 		</section>
 	);
 };

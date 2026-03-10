@@ -12,10 +12,17 @@ $space-300: 3rem;
 $space-350: 3.5rem;
 $space-400: 4rem;
 $max-layout-width: 80rem;
+$border-25: 0.0625rem; // 1px
+$border-50: 0.125rem; // 2px
+$border-100: 0.25rem; // 4px
+$radius-50: 0.125rem; // 2px
+$radius-100: 0.25rem; // 4px
+$radius-150: 0.375rem; // 6px
+$radius-200: 0.5rem; // 8px
 
 // Neutral scale
 $neutral-100: rgba(255, 255, 255, 1); // #FFFFFF
-$neutral-200: rgba(247, 248, 250, 1); // #F7F8FA
+$neutral-200: rgba(204, 204, 204, 1); // #CCCCCC
 $neutral-300: rgba(89, 89, 89, 1); // #595959
 $neutral-400: rgba(68, 68, 68, 1); // #444444
 $neutral-500: rgba(47, 47, 47, 1); // #2F2F2F
@@ -26,6 +33,7 @@ $main-200: rgba(213, 231, 252, 1); // #D5E7FC
 $main-300: rgba(176, 210, 247, 1); // #B0D2F7
 $main-400: rgba(108, 171, 236, 1); // #6CABEC
 $main-500: rgba(44, 110, 184, 1); // #2C6EB8
+$main-600: rgba(31, 79, 135, 1); // #1F4F87
 
 @mixin spacing-vars {
   --space-0: #{$space-0};
@@ -58,11 +66,22 @@ $main-500: rgba(44, 110, 184, 1); // #2C6EB8
   --main-300: #{$main-300};
   --main-400: #{$main-400};
   --main-500: #{$main-500};
+  --main-600: #{$main-600};
 
   // Compatibility aliases during transition
   --color-main: var(--main-300);
   --color-secondary: var(--main-100);
   --color-tertiary: var(--neutral-500);
+}
+
+@mixin border-vars {
+  --border-25: #{$border-25};
+  --border-50: #{$border-50};
+  --border-100: #{$border-100};
+  --radius-50: #{$radius-50};
+  --radius-100: #{$radius-100};
+  --radius-150: #{$radius-150};
+  --radius-200: #{$radius-200};
 }
 
 @mixin tablet-up {

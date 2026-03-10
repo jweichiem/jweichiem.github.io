@@ -5,7 +5,7 @@ import { appRoutes, fallbackRoute } from '../routes.ts';
 
 const Main = () => {
 	return (
-		<main className="page-main page-layout">
+		<main className="page-main">
 			<Switch>
 				{appRoutes.map((route) => (
 					<Route

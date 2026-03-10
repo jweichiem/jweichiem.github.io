@@ -6,6 +6,7 @@
   @include tokens.spacing-vars;
   @include tokens.layout-vars;
   @include tokens.color-vars;
+  @include tokens.border-vars;
 }
 
 #root {
@@ -33,4 +34,35 @@ span {
   font-weight: 500;
 }
 
+p {
+  max-width: 37rem;
+  line-height: 1.25;
+}
+
 @include tokens.page-layout;
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+a {
+  color: var(--main-600);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: var(--main-500);
+  }
+}

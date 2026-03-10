@@ -2,4 +2,11 @@
 
 .page-main {
   flex: 1;
+  padding: 0;
+}
+
+@include tokens.tablet-up {
+  .page-main {
+    padding: 0;
+  }
 }
