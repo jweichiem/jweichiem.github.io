@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { prerenderRoutes, render } from '../../../client/entry/server.tsx';
+import { prerenderRoutes, render } from '../server.tsx';
 
 test('render returns swedish metadata and content for localized routes', () => {
 	const renderedPage = render('/sv/about');

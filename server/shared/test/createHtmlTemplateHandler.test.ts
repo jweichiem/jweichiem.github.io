@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 import { expect, test } from 'vitest';
-import { createHtmlTemplateHandler } from '../shared/createHtmlTemplateHandler.ts';
-import type { Renderer } from '../shared/types.ts';
+import { createHtmlTemplateHandler } from '../createHtmlTemplateHandler.ts';
+import type { Renderer } from '../types.ts';
 
 const createTestApp = (
 	mode: 'development' | 'production',

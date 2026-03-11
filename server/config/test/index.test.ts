@@ -8,11 +8,11 @@ const { developmentConfigMock, productionConfigMock } = vi.hoisted(() => {
 	};
 });
 
-vi.mock('../config/development/index.ts', () => {
+vi.mock('../development/index.ts', () => {
 	return { fastifyAppConfig: developmentConfigMock };
 });
 
-vi.mock('../config/production/index.ts', () => {
+vi.mock('../production/index.ts', () => {
 	return { fastifyAppConfig: productionConfigMock };
 });
 
@@ -24,7 +24,7 @@ afterEach(() => {
 
 test('config/index selects development config when NODE_ENV is not production', async () => {
 	process.env.NODE_ENV = 'development';
-	const { fastifyAppConfig } = await import('../config/index.ts');
+	const { fastifyAppConfig } = await import('../index.ts');
 
 	await fastifyAppConfig({} as FastifyInstance, '/repo-root');
 
@@ -38,7 +38,7 @@ test('config/index selects development config when NODE_ENV is not production', 
 
 test('config/index selects production config when NODE_ENV=production', async () => {
 	process.env.NODE_ENV = 'production';
-	const { fastifyAppConfig } = await import('../config/index.ts');
+	const { fastifyAppConfig } = await import('../index.ts');
 
 	await fastifyAppConfig({} as FastifyInstance, '/repo-root');
 
