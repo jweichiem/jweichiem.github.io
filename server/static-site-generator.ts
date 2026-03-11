@@ -34,3 +34,13 @@ for (const route of routes) {
 	await writeFile(outputPath, html, 'utf-8');
 	console.log(`Prerendered ${route} -> ${outputPath}`);
 }
+
+const notFoundRoute = '/404';
+const renderedNotFoundPage = await render(notFoundRoute);
+const notFoundHtml = template
+	.replace('<!--app-head-->', renderedNotFoundPage.headHtml ?? '')
+	.replace('<!--app-html-->', renderedNotFoundPage.appHtml);
+const notFoundOutputPath = path.join(clientDistPath, '404.html');
+
+await writeFile(notFoundOutputPath, notFoundHtml, 'utf-8');
+console.log(`Prerendered ${notFoundRoute} -> ${notFoundOutputPath}`);
