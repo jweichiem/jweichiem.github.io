@@ -11,7 +11,7 @@ export const render = (url: string) => {
 		? parsedUrl.search.slice(1)
 		: parsedUrl.search;
 	const locale = getLocaleFromUrl(url);
-	const appHtml = renderToString(createAppTree({ locale, pathname, search }));
+	const appHtml = renderToString(createAppTree({ pathname, search }));
 	const headHtml = createHeadHtml(pathname, locale);
 
 	return { appHtml, headHtml };

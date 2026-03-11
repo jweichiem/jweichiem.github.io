@@ -1,27 +1,31 @@
-import { Router } from 'wouter';
-import { I18nProvider, type Locale } from '../i18n/index.tsx';
+import { Router, useLocation } from 'wouter';
+import { getLocaleFromPathname, I18nProvider } from '../i18n/index.tsx';
 import Footer from './page-footer/index.tsx';
 import Header from './page-header/index.tsx';
 import Main from './page-main/index.tsx';
 
 interface CreateAppTreeOptions {
-	locale: Locale;
 	pathname: string;
 	search: string;
 }
 
-export const createAppTree = ({
-	locale,
-	pathname,
-	search,
-}: CreateAppTreeOptions) => {
+const LocalizedAppTree = () => {
+	const [location] = useLocation();
+	const locale = getLocaleFromPathname(location);
+
 	return (
 		<I18nProvider locale={locale}>
-			<Router ssrPath={pathname} ssrSearch={search}>
-				<Header />
-				<Main />
-				<Footer />
-			</Router>
+			<Header />
+			<Main />
+			<Footer />
 		</I18nProvider>
+	);
+};
+
+export const createAppTree = ({ pathname, search }: CreateAppTreeOptions) => {
+	return (
+		<Router ssrPath={pathname} ssrSearch={search}>
+			<LocalizedAppTree />
+		</Router>
 	);
 };

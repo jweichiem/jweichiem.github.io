@@ -3,4 +3,63 @@
   color: var(--neutral-500);
   padding: var(--space-75) 0;
   margin-block-start: var(--space-125);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-100);
+    flex-wrap: wrap;
+  }
+
+  &__language-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--space-75);
+  }
+
+  &__language-label {
+    font-size: .875rem;
+    color: var(--neutral-400);
+  }
+
+  &__language-list {
+    display: flex;
+    gap: var(--space-50);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__language-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0 var(--space-75);
+    border: .0625rem solid var(--neutral-300);
+    border-radius: 999rem;
+    text-decoration: none;
+
+    &[aria-current='page'] {
+      border-color: var(--main-600);
+      background: var(--neutral-100);
+      color: var(--main-700);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    &__content,
+    &__language-selector {
+      align-items: flex-start;
+    }
+
+    &__language-list {
+      flex-wrap: wrap;
+    }
+
+    &__language-selector {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
 }

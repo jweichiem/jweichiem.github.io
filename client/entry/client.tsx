@@ -19,7 +19,6 @@ applyRouteMeta(pathname, locale);
 const app = (
 	<StrictMode>
 		{createAppTree({
-			locale,
 			pathname,
 			search: window.location.search.slice(1),
 		})}

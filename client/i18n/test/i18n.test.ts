@@ -1,4 +1,6 @@
+import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, test } from 'vitest';
+import { createAppTree } from '../../app/createAppTree.tsx';
 import {
 	applyRouteMeta,
 	createHeadHtml,
@@ -151,5 +153,17 @@ describe('localized routes', () => {
 
 	test('prerender routes include both english and swedish paths', () => {
 		expect(prerenderRoutes).toEqual(['/', '/sv', '/about', '/sv/about']);
+	});
+
+	test('app tree derives locale from the current pathname', () => {
+		const englishAppHtml = renderToString(
+			createAppTree({ pathname: '/about', search: '' }),
+		);
+		const swedishAppHtml = renderToString(
+			createAppTree({ pathname: '/sv/about', search: '' }),
+		);
+
+		expect(englishAppHtml).toContain('About this website');
+		expect(swedishAppHtml).toContain('Om den här webbplatsen');
 	});
 });

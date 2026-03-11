@@ -30,6 +30,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: var(--space-100);
   }
 
   &__letter {
@@ -69,6 +70,16 @@
 
     &[aria-current='page'] {
       border: .125rem dashed var(--main-600);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    &__content {
+      align-items: flex-start;
+    }
+
+    &__nav-list {
+      flex-wrap: wrap;
     }
   }
 

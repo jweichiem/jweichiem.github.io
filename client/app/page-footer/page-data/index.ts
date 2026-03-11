@@ -4,6 +4,12 @@ import sv from './sv.ts';
 
 export type PageFooterData = {
 	copyright: string;
+	languageNavigation: string;
+	languageLabel: string;
+	languages: {
+		en: string;
+		sv: string;
+	};
 };
 
 const pageFooterData: Record<Locale, PageFooterData> = {
