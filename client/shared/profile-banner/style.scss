@@ -1,0 +1,59 @@
+@use '../_tokens.scss' as tokens;
+
+.profile-banner {
+  background: var(--main-100);
+
+  &__layout {
+    display: flex;
+    gap: var(--space-100);
+    padding-block: var(--space-150);
+  }
+
+  &__avatar {
+    width: 12.5rem;
+    height: auto;
+    max-width: 100%;
+
+    border-radius: var(--radius-200);
+    overflow: hidden;
+    min-width: 5rem;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__contact-details {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-100);
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    align-self: center;
+  }
+
+  &__career-description {
+    display: block;
+    font-size: .5em;
+    margin-block: 1em;
+  }
+}
+
+@include tokens.tablet-up {
+  .profile {
+    gap: var(--space-150);
+    padding-block: var(--space-150);
+  }
+}
+
+@include tokens.desktop-up {
+  .profile {
+    gap: var(--space-200);
+    padding-block: var(--space-200);
+  }
+}

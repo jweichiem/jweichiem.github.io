@@ -2,6 +2,7 @@ import './style.scss';
 import ikeaLogo from '../../assets/ikea-logo.svg';
 import knowItLogo from '../../assets/knowit-logo.svg';
 import luxidLogo from '../../assets/luxid-logo.svg';
+import ProfileBanner from '../../shared/profile-banner';
 import placeholder from '../../assets/placeholder.svg';
 
 const Home = () => {
@@ -107,7 +108,7 @@ const Home = () => {
 	const intro = {
 		title: 'Introduction',
 		description:
-			'I’m a Senior Software Engineer, currently based in Berlin, Germany. I have a lot of experience in frontend architecture, design systems, and building scalable UI components. Over the past several years at IKEA, I’m a founding engineer for Skapa, IKEA’s design system used by more than 200 product teams across the company. My work has involved designing and building reusable components, improving accessibility and performance, and creating tooling that helps teams ship customer-facing features faster and more consistently. I enjoy working closely with designers and product teams, solving real product problems with thoughtful technical solutions, and building systems that scale across large organizations.',
+			'I’m a Senior Software Engineer, currently based in Berlin, Germany. I have a lot of experience in frontend architecture, design systems, and building scalable UI components. I’m a founding engineer for Skapa, IKEA’s design system used by more than 200 product teams across the company. My work has involved developing and building reusable components, improving accessibility and performance, and creating tooling that helps teams ship customer-facing features faster and more consistently. I enjoy working closely with designers and product teams, solving real product problems with thoughtful technical solutions, and building systems that scale across large organizations.',
 	};
 
 	return (
