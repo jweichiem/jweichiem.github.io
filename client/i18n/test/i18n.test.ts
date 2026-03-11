@@ -13,6 +13,11 @@ import {
 	getLocaleFromUrl,
 	stripLocaleFromPathname,
 } from '../index.tsx';
+import {
+	normalizeBasePath,
+	prependConfiguredBasePath,
+	stripConfiguredBasePath,
+} from '../../shared/base-path-utils.ts';
 
 type MockMetaElement = {
 	content: string | null;
@@ -99,6 +104,26 @@ describe('i18n path helpers', () => {
 		expect(createLocalizedPath('/sv/about', 'en')).toBe('/about');
 		expect(stripLocaleFromPathname('/sv/about')).toBe('/about');
 		expect(stripLocaleFromPathname('/sv')).toBe('/');
+	});
+
+	test('normalizes configurable base paths', () => {
+		expect(normalizeBasePath()).toBe('');
+		expect(normalizeBasePath('/')).toBe('');
+		expect(normalizeBasePath('joakim-cv')).toBe('/joakim-cv');
+		expect(normalizeBasePath('/joakim-cv/')).toBe('/joakim-cv');
+	});
+
+	test('can prepend and strip a configured base path', () => {
+		expect(prependConfiguredBasePath('/', '/joakim-cv/')).toBe('/joakim-cv');
+		expect(prependConfiguredBasePath('/sv/about', '/joakim-cv/')).toBe(
+			'/joakim-cv/sv/about',
+		);
+		expect(stripConfiguredBasePath('/joakim-cv/sv/about', '/joakim-cv/')).toBe(
+			'/sv/about',
+		);
+		expect(stripConfiguredBasePath('/sv/about', '/joakim-cv/')).toBe(
+			'/sv/about',
+		);
 	});
 });
 

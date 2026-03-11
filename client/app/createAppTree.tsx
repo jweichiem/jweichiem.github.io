@@ -1,5 +1,6 @@
 import { Router, useLocation } from 'wouter';
 import { getLocaleFromPathname, I18nProvider } from '../i18n/index.tsx';
+import { basePath } from '../shared/base-path.ts';
 import Footer from './page-footer/index.tsx';
 import Header from './page-header/index.tsx';
 import Main from './page-main/index.tsx';
@@ -27,7 +28,7 @@ const LocalizedAppTree = () => {
 
 export const createAppTree = ({ pathname, search }: CreateAppTreeOptions) => {
 	return (
-		<Router ssrPath={pathname} ssrSearch={search}>
+		<Router base={basePath} ssrPath={pathname} ssrSearch={search}>
 			<LocalizedAppTree />
 		</Router>
 	);

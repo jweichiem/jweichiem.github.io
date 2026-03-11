@@ -1,4 +1,5 @@
 import { createContext, type PropsWithChildren, useContext } from 'react';
+import { stripBasePath } from '../shared/base-path.ts';
 
 export const supportedLocales = ['en', 'sv'] as const;
 
@@ -30,7 +31,7 @@ export const getLocaleFromSearch = (search: string): Locale => {
 };
 
 export const getLocaleFromPathname = (pathname: string): Locale => {
-	const normalizedPathname = normalizePath(pathname);
+	const normalizedPathname = stripBasePath(normalizePath(pathname));
 	const [, maybeLocale] = normalizedPathname.split('/');
 	return maybeLocale && isSupportedLocale(maybeLocale)
 		? maybeLocale
@@ -38,7 +39,7 @@ export const getLocaleFromPathname = (pathname: string): Locale => {
 };
 
 export const stripLocaleFromPathname = (pathname: string) => {
-	const normalizedPathname = normalizePath(pathname);
+	const normalizedPathname = stripBasePath(normalizePath(pathname));
 	const [, maybeLocale, ...rest] = normalizedPathname.split('/');
 
 	if (!maybeLocale || !isSupportedLocale(maybeLocale)) {

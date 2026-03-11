@@ -91,6 +91,12 @@ Personal website built with React on the frontend and Fastify on the backend, wi
 - `npm run test`: start Vitest in watch mode
 - `npm run test:server`: run the current test suite once
 
+## Deployment
+
+- Set `VITE_BASE_PATH` when the site is hosted under a subpath, for example `VITE_BASE_PATH=/joakim-cv npm run build:ssg`.
+- Leave `VITE_BASE_PATH` unset when the site is hosted at the domain root.
+- GitHub Pages should publish the generated files from `dist/client/`.
+
 ## Notes
 
 - Route metadata is generated from the route registry and applied in both client navigation and SSR output.

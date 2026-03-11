@@ -3,6 +3,7 @@ import { createAppTree } from '../app/createAppTree.tsx';
 import { createHeadHtml } from '../app/meta.ts';
 import { prerenderRoutes } from '../app/routes.ts';
 import { getLocaleFromUrl } from '../i18n/index.tsx';
+import { prependBasePath } from '../shared/base-path.ts';
 
 export const render = (url: string) => {
 	const parsedUrl = new URL(url, 'http://localhost');
@@ -11,8 +12,10 @@ export const render = (url: string) => {
 		? parsedUrl.search.slice(1)
 		: parsedUrl.search;
 	const locale = getLocaleFromUrl(url);
-	const appHtml = renderToString(createAppTree({ pathname, search }));
-	const headHtml = createHeadHtml(pathname, locale);
+	const appHtml = renderToString(
+		createAppTree({ pathname: prependBasePath(pathname), search }),
+	);
+	const headHtml = createHeadHtml(prependBasePath(pathname), locale);
 
 	return { appHtml, headHtml };
 };
