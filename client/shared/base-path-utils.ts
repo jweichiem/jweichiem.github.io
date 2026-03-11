@@ -27,7 +27,9 @@ export const stripConfiguredBasePath = (
 	return normalizedPathname
 		.toLowerCase()
 		.startsWith(normalizedBasePath.toLowerCase())
-		? normalizePathname(normalizedPathname.slice(normalizedBasePath.length) || '/')
+		? normalizePathname(
+				normalizedPathname.slice(normalizedBasePath.length) || '/',
+			)
 		: normalizedPathname;
 };
 

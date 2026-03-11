@@ -11,7 +11,16 @@ export type AboutPageData = {
 		};
 	};
 	title: string;
-	description: string;
+	paragraphs: readonly string[];
+	footnote: string;
+	sections: readonly {
+		title: string;
+		cards: readonly {
+			title: string;
+			description: string;
+			items: readonly string[];
+		}[];
+	}[];
 };
 
 const aboutPageData: Record<Locale, AboutPageData> = {

@@ -5,13 +5,13 @@ import {
 	stripLocaleFromPathname,
 	supportedLocales,
 } from '../i18n/index.tsx';
-import { stripBasePath } from '../shared/base-path.ts';
 import About from '../pages/about/index.tsx';
 import aboutPageData from '../pages/about/page-data/index.ts';
 import Home from '../pages/home/index.tsx';
 import homePageData from '../pages/home/page-data/index.ts';
 import NotFound from '../pages/not-found/index.tsx';
 import notFoundPageData from '../pages/not-found/page-data/index.ts';
+import { stripBasePath } from '../shared/base-path.ts';
 
 export interface RouteMeta {
 	title: string;
@@ -55,9 +55,7 @@ export const fallbackRoute: FallbackRoute = {
 
 const normalizePath = (inputPath: string) => {
 	const pathWithoutQuery = stripLocaleFromPathname(
-		stripBasePath(inputPath)
-			.split('?')[0]
-			.split('#')[0],
+		stripBasePath(inputPath).split('?')[0].split('#')[0],
 	);
 	const normalizedPath = pathWithoutQuery.replace(/\/+$/, '');
 	return normalizedPath === '' ? '/' : normalizedPath;

@@ -1,0 +1,38 @@
+@use '../../shared/_tokens.scss' as tokens;
+
+.about-layout {
+  padding-block-start: var(--space-100);
+}
+
+.about-grid {
+  display: grid;
+  gap: var(--space-100);
+}
+
+.about-card {
+  height: 100%;
+
+  h3 {
+    margin-block-start: 0;
+  }
+
+  p {
+    margin-block-start: 0;
+  }
+
+  ul {
+    margin-block-end: 0;
+    padding-inline-start: 1.25rem;
+  }
+}
+
+.about-footnote {
+  color: var(--neutral-300);
+}
+
+@include tokens.tablet-up {
+  .about-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}

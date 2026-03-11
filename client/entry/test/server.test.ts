@@ -12,7 +12,7 @@ test('render returns swedish metadata and content for localized routes', () => {
 	);
 	expect(renderedPage.appHtml).toContain('Om den här webbplatsen');
 	expect(renderedPage.appHtml).toContain(
-		'Den här webbplatsen byggdes för att visa lite av mitt arbete och min erfarenhet.',
+		'Den här webbplatsen byggdes för att visa lite av mitt arbete, min erfarenhet och hur jag tänker kring produktutveckling som Senior Software Engineer.',
 	);
 	expect(renderedPage.appHtml).toContain('aria-label="Språkval"');
 	expect(renderedPage.appHtml).toContain('href="/about"');

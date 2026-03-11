@@ -8,16 +8,16 @@ import {
 } from '../../app/meta.ts';
 import { prerenderRoutes, resolveRoute } from '../../app/routes.ts';
 import {
+	normalizeBasePath,
+	prependConfiguredBasePath,
+	stripConfiguredBasePath,
+} from '../../shared/base-path-utils.ts';
+import {
 	createLocalizedPath,
 	getLocaleFromPathname,
 	getLocaleFromUrl,
 	stripLocaleFromPathname,
 } from '../index.tsx';
-import {
-	normalizeBasePath,
-	prependConfiguredBasePath,
-	stripConfiguredBasePath,
-} from '../../shared/base-path-utils.ts';
 
 type MockMetaElement = {
 	content: string | null;
