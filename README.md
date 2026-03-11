@@ -67,7 +67,7 @@ Personal website built with React on the frontend and Fastify on the backend, wi
 - Development mode runs Vite in middleware mode, uses `vite.transformIndexHtml()`, and loads the latest server entry with `vite.ssrLoadModule()`.
 - Production mode serves built assets, loads the built SSR entry, and renders HTML by combining `index.html` with the rendered React app and route-specific metadata.
 - `client/entry/server.tsx` returns both `appHtml` and head metadata for SSR and prerendering.
-- `server/static-site-generator.ts` reuses the production renderer to write HTML files for every route listed in `prerenderRoutes`, or a custom `PRERENDER_ROUTES` override.
+- `server/static-site-generator.ts` reuses the production renderer to write HTML files for every route listed in `prerenderRoutes`, or a custom `PRERENDER_ROUTES` override, into `docs/` by default.
 
 ## Tests
 
@@ -82,7 +82,7 @@ Personal website built with React on the frontend and Fastify on the backend, wi
 - `npm run dev`: Vite development server
 - `npm run dev:ssr`: Fastify SSR server in development mode
 - `npm run build`: TypeScript build + client/SSR bundle build
-- `npm run build:ssg`: build then prerender static routes
+- `npm run build:ssg`: build then prerender static routes into `docs/`
 - `npm run start:ssr`: start production SSR server
 - `npm run test:server`: run server test suite
 - `npm run lint`: run Biome checks
@@ -95,7 +95,8 @@ Personal website built with React on the frontend and Fastify on the backend, wi
 
 - Set `VITE_BASE_PATH` when the site is hosted under a subpath, for example `VITE_BASE_PATH=/joakim-cv npm run build:ssg`.
 - Leave `VITE_BASE_PATH` unset when the site is hosted at the domain root.
-- GitHub Pages should publish the generated files from `dist/client/`.
+- GitHub Pages should publish the generated files from `docs/`.
+- Override the output directory with `STATIC_SITE_OUT_DIR`, for example `STATIC_SITE_OUT_DIR=. npm run build:ssg`.
 
 ## Notes
 
