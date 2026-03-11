@@ -5,6 +5,8 @@ import sv from './sv.ts';
 export type PageHeaderData = {
 	logoLabel: string;
 	primaryNavigation: string;
+	switchToDarkMode: string;
+	switchToLightMode: string;
 };
 
 const pageHeaderData: Record<Locale, PageHeaderData> = {

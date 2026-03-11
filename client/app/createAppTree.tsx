@@ -3,6 +3,7 @@ import { getLocaleFromPathname, I18nProvider } from '../i18n/index.tsx';
 import Footer from './page-footer/index.tsx';
 import Header from './page-header/index.tsx';
 import Main from './page-main/index.tsx';
+import { ThemeProvider } from './theme.tsx';
 
 interface CreateAppTreeOptions {
 	pathname: string;
@@ -15,9 +16,11 @@ const LocalizedAppTree = () => {
 
 	return (
 		<I18nProvider locale={locale}>
-			<Header />
-			<Main />
-			<Footer />
+			<ThemeProvider>
+				<Header />
+				<Main />
+				<Footer />
+			</ThemeProvider>
 		</I18nProvider>
 	);
 };

@@ -8,6 +8,7 @@
   padding: var(--space-100);
   border: .125rem solid var(--neutral-200);
   border-radius: var(--radius-200);
+  background: var(--elevation-100);
 }
 
 .work-experience {
@@ -31,7 +32,7 @@
     display: block;
     position: absolute;
     inset-inline-start: var(--space-50);
-    border-left: 0.0625rem solid var(--neutral-200);
+    border-left: 0.0625rem solid var(--elevation-200);
     inset-block-end: -1.5rem;
     inset-block-start: var(--space-75);
     margin-inline-start: calc(var(--space-25) - 0.0625rem);
@@ -61,10 +62,27 @@
 
   &__company {
     margin-block-start: 0;
+    color: var(--static-black);
+  }
+
+  &__logo-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-50);
+    padding: var(--space-75);
+    margin-block-end: var(--space-75);
+    border-radius: var(--radius-150);
+    background: var(--neutral-100);
   }
 
   &__logo {
     width: 100%;
     max-width: 7.5rem;
+  }
+}
+
+:root[data-theme='dark'] {
+  .work-experience__logo-wrapper {
+    background: var(--static-white);
   }
 }

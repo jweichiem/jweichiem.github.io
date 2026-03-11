@@ -9,6 +9,16 @@
   @include tokens.border-vars;
 }
 
+:root[data-theme='dark'] {
+  @include tokens.dark-color-vars;
+}
+
+html,
+body {
+  background: var(--neutral-100);
+  color: var(--neutral-500);
+}
+
 #root {
   min-height: 100dvh;
   display: flex;
