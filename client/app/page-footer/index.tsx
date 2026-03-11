@@ -1,13 +1,15 @@
 import './style.scss';
+import { useI18n } from '../../i18n/index.tsx';
+import pageFooterData from './page-data/index.ts';
 
 const Footer = () => {
+	const { locale } = useI18n();
+	const footerData = pageFooterData[locale];
+
 	return (
 		<footer className="page-footer">
 			<div className="page-layout">
-				<p>
-					&copy; 2026 Joakim Weise-Chiem. All rights reserved. Third-party
-					trademarks and licensed materials belong to their respective owners.
-				</p>
+				<p>{footerData.copyright}</p>
 			</div>
 		</footer>
 	);

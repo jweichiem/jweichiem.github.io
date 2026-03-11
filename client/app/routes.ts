@@ -1,10 +1,16 @@
 import type { ComponentType } from 'react';
+import type { Locale } from '../i18n/index.tsx';
+import {
+	createLocalizedPath,
+	stripLocaleFromPathname,
+	supportedLocales,
+} from '../i18n/index.tsx';
 import About from '../pages/about/index.tsx';
-import { aboutMeta } from '../pages/about/meta.ts';
+import aboutPageData from '../pages/about/page-data/index.ts';
 import Home from '../pages/home/index.tsx';
-import { homeMeta } from '../pages/home/meta.ts';
+import homePageData from '../pages/home/page-data/index.ts';
 import NotFound from '../pages/not-found/index.tsx';
-import { notFoundMeta } from '../pages/not-found/meta.ts';
+import notFoundPageData from '../pages/not-found/page-data/index.ts';
 
 export interface RouteMeta {
 	title: string;
@@ -12,42 +18,44 @@ export interface RouteMeta {
 }
 
 export interface AppRoute {
-	label: string;
 	path: string;
 	component: ComponentType;
-	meta: RouteMeta;
+	getLabel: (locale: Locale) => string;
+	getMeta: (locale: Locale) => RouteMeta;
 	prerender: boolean;
 }
 
 export interface FallbackRoute {
 	component: ComponentType;
-	meta: RouteMeta;
+	getMeta: (locale: Locale) => RouteMeta;
 }
 
 export const appRoutes: AppRoute[] = [
 	{
 		path: '/',
-		label: 'Home',
 		component: Home,
-		meta: homeMeta,
+		getLabel: (locale) => homePageData[locale].route.label,
+		getMeta: (locale) => homePageData[locale].route.meta,
 		prerender: true,
 	},
 	{
 		path: '/about',
-		label: 'About',
 		component: About,
-		meta: aboutMeta,
+		getLabel: (locale) => aboutPageData[locale].route.label,
+		getMeta: (locale) => aboutPageData[locale].route.meta,
 		prerender: true,
 	},
 ];
 
 export const fallbackRoute: FallbackRoute = {
 	component: NotFound,
-	meta: notFoundMeta,
+	getMeta: (locale) => notFoundPageData[locale].route.meta,
 };
 
 const normalizePath = (inputPath: string) => {
-	const pathWithoutQuery = inputPath.split('?')[0].split('#')[0];
+	const pathWithoutQuery = stripLocaleFromPathname(
+		inputPath.split('?')[0].split('#')[0],
+	);
 	const normalizedPath = pathWithoutQuery.replace(/\/+$/, '');
 	return normalizedPath === '' ? '/' : normalizedPath;
 };
@@ -62,4 +70,6 @@ export const resolveRoute = (path: string) => {
 
 export const prerenderRoutes = appRoutes
 	.filter((route) => route.prerender)
-	.map((route) => route.path);
+	.flatMap((route) =>
+		supportedLocales.map((locale) => createLocalizedPath(route.path, locale)),
+	);

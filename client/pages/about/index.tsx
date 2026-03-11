@@ -1,10 +1,15 @@
 import './style.scss';
+import { useI18n } from '../../i18n/index.tsx';
+import aboutPageData from './page-data/index.ts';
 
 const About = () => {
+	const { locale } = useI18n();
+	const pageData = aboutPageData[locale];
+
 	return (
 		<section className="section page-layout">
-			<h1>About this website</h1>
-			<p>This website was built to showcase a bit of my work and experience.</p>
+			<h1>{pageData.title}</h1>
+			<p>{pageData.description}</p>
 		</section>
 	);
 };

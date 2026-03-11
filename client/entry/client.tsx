@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { createAppTree } from '../app/createAppTree.tsx';
 import { applyRouteMeta } from '../app/meta.ts';
+import { getLocaleFromPathname } from '../i18n/index.tsx';
 import '../app/index.scss';
 
 const rootElement = document.getElementById('root');
@@ -11,11 +12,14 @@ if (!rootElement) {
 }
 
 const pathname = window.location.pathname;
-applyRouteMeta(pathname);
+const locale = getLocaleFromPathname(pathname);
+
+applyRouteMeta(pathname, locale);
 
 const app = (
 	<StrictMode>
 		{createAppTree({
+			locale,
 			pathname,
 			search: window.location.search.slice(1),
 		})}
