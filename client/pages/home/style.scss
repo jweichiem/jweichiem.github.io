@@ -91,9 +91,11 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     align-items: start;
     margin: 0 auto;
+    max-width: 67.5rem;
   }
 
   .home-layout {
     grid-column: span 8;
+    border-right: .0625rem solid var(--neutral-300);
   }
 }

@@ -8,5 +8,6 @@
 @include tokens.tablet-up {
   .page-main {
     padding: 0;
+    background: var(--neutral-100);
   }
 }
