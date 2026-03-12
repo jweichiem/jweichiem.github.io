@@ -1,15 +1,15 @@
+@use '../../shared/_tokens.scss' as tokens;
+
 .page-footer {
-  background: var(--main-100);
+  background: var(--elevation-100);
   color: var(--neutral-500);
   padding: var(--space-75) 0;
-  margin-block-start: var(--space-125);
 
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-100);
-    flex-wrap: wrap;
   }
 
   &__language-selector {
@@ -47,19 +47,16 @@
     }
   }
 
-  @media (max-width: 48rem) {
-    &__content,
-    &__language-selector {
-      align-items: flex-start;
-    }
+}
 
-    &__language-list {
-      flex-wrap: wrap;
+@include tokens.tablet-up {
+  .page-footer {
+    &__language-selector {
+      align-items: center;
     }
 
     &__language-selector {
-      width: 100%;
-      justify-content: space-between;
+      justify-self: flex-end;
     }
   }
 }

@@ -16,7 +16,22 @@ export type HomePageData = {
 		subtitle: string;
 		careerStatus: string;
 		profileImageAlt: string;
-		contactGithub: string;
+		contactDetails: readonly {
+			label: string;
+			href: string;
+		}[];
+		desktopSections: {
+			experienceFocus: {
+				items: readonly {
+					label: string;
+					value: string;
+				}[];
+			};
+			keySkills: {
+				title: string;
+				items: readonly string[];
+			};
+		};
 	};
 	intro: {
 		title: string;

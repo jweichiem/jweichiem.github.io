@@ -22,10 +22,11 @@ $radius-200: 0.5rem; // 8px
 
 // Neutral scale
 $neutral-100: rgba(255, 255, 255, 1); // #FFFFFF
-$neutral-200: rgba(204, 204, 204, 1); // #CCCCCC
-$neutral-300: rgba(89, 89, 89, 1); // #595959
-$neutral-400: rgba(68, 68, 68, 1); // #444444
-$neutral-500: rgba(47, 47, 47, 1); // #2F2F2F
+$neutral-200: rgba(245, 245, 245, 1); // #f5f5f5
+$neutral-300: rgba(204, 204, 204, 1); // #CCCCCC
+$neutral-400: rgba(89, 89, 89, 1); // #595959
+$neutral-500: rgba(68, 68, 68, 1); // #444444
+$neutral-600: rgba(47, 47, 47, 1); // #2F2F2F
 
 // Main color scale
 $main-100: rgba(236, 245, 255, 1); // #ECF5FF
@@ -38,8 +39,7 @@ $main-600: rgba(31, 79, 135, 1); // #1F4F87
 // Static colors
 $static-white: rgb(250 252 255);
 $static-black: rgb(24 24 24);
-$elevation-100: #f5f5f5;
-$elevation-200: $neutral-200;
+$elevation-100: $main-100;
 
 $status-positive-100: rgba(190, 234, 219, 1); // #beeadb
 $status-positive-200: rgba(0, 128, 64, 1); // #2f6553
@@ -47,7 +47,8 @@ $status-positive-300: rgba(0, 100, 50, 1); // #006432
 
 // Dark theme overrides
 $dark-neutral-100: rgb(16 20 24);
-$dark-neutral-200: rgb(42 49 56);
+$dark-neutral-200: rgb(18 30 48);
+$dark-neutral-300: rgb(42 49 56);
 $dark-neutral-300: rgb(111 121 132);
 $dark-neutral-400: rgb(196 204 211);
 $dark-neutral-500: rgb(241 245 247);
@@ -58,8 +59,7 @@ $dark-main-300: rgb(56 93 131);
 $dark-main-400: rgb(94 144 198);
 $dark-main-500: rgb(132 179 230);
 $dark-main-600: rgb(177 209 244);
-$dark-elevation-100: rgb(46 53 60);
-$dark-elevation-200: $static-white;
+$dark-elevation-100: $dark-main-100;
 
 @mixin spacing-vars {
   --space-0: #{$space-0};
@@ -101,7 +101,6 @@ $dark-elevation-200: $static-white;
   --static-white: #{$static-white};
   --static-black: #{$static-black};
   --elevation-100: #{$elevation-100};
-  --elevation-200: #{$elevation-200};
 
   // Compatibility aliases during transition
   --color-main: var(--main-300);
@@ -130,7 +129,6 @@ $dark-elevation-200: $static-white;
   --static-white: #{$static-white};
   --static-black: #{$static-black};
   --elevation-100: #{$dark-elevation-100};
-  --elevation-200: #{$dark-elevation-200};
 
   --color-main: var(--main-300);
   --color-secondary: var(--main-100);

@@ -1,4 +1,5 @@
 import { createElement } from 'react';
+import SkillsList from '../skills-list';
 import './style.scss';
 
 type ProfileBannerProps = {
@@ -6,10 +7,22 @@ type ProfileBannerProps = {
 	careerDescription: string;
 	subtitle: string;
 	careerStatus: string;
-	contactDetails: {
+	contactDetails: readonly {
 		label: string;
 		href: string;
 	}[];
+	desktopSections: {
+		experienceFocus: {
+			items: readonly {
+				label: string;
+				value: string;
+			}[];
+		};
+		keySkills: {
+			title: string;
+			items: readonly string[];
+		};
+	};
 	titleTagName?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 	profileImage: {
 		src: string;
@@ -24,6 +37,7 @@ const ProfileBanner: React.FC<ProfileBannerProps> = ({
 	subtitle,
 	contactDetails,
 	careerStatus,
+	desktopSections,
 	titleTagName = 'h1',
 }) => {
 	return (
@@ -48,6 +62,43 @@ const ProfileBanner: React.FC<ProfileBannerProps> = ({
 					<p className="profile-banner__subtitle">{subtitle}</p>
 					<p className="profile-banner__career-status">{careerStatus}</p>
 				</div>
+			</div>
+			<ul className="profile-banner__contact-details page-layout">
+				{contactDetails.map((contact) => (
+					<li key={contact.label} className="profile-banner__contact-info">
+						<a
+							href={contact.href}
+							className="profile-banner__contact-link"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{contact.label}
+						</a>
+					</li>
+				))}
+			</ul>
+			<div className="profile-banner__desktop-sections page-layout">
+				<section className="profile-banner__desktop-section">
+					<div className="profile-banner__desktop-metrics">
+						{desktopSections.experienceFocus.items.map((item) => (
+							<div className="profile-banner__desktop-metric" key={item.label}>
+								<h2 className="profile-banner__desktop-heading">
+									{item.label}
+								</h2>
+								<p className="profile-banner__desktop-value">{item.value}</p>
+							</div>
+						))}
+					</div>
+				</section>
+				<section className="profile-banner__desktop-section">
+					<h2 className="profile-banner__desktop-heading">
+						{desktopSections.keySkills.title}
+					</h2>
+					<SkillsList
+						items={desktopSections.keySkills.items}
+						className="profile-banner__desktop-skills"
+					/>
+				</section>
 			</div>
 		</section>
 	);

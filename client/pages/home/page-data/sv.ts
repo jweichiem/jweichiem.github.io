@@ -12,7 +12,43 @@ const sv = {
 		subtitle: 'Berlin, Tyskland.',
 		careerStatus: 'Letar efter en ny roll',
 		profileImageAlt: 'Profilbild på Joakim Weise-Chiem',
-		contactGithub: 'GitHub',
+		contactDetails: [
+			{
+				label: 'GitHub',
+				href: 'https://github.com/jweichiem',
+			},
+			{
+				label: 'E-post',
+				href: 'mailto:joakim.chiem@gmail.com',
+			},
+		],
+		desktopSections: {
+			experienceFocus: {
+				items: [
+					{
+						label: 'Erfarenhet',
+						value: '10+ år',
+					},
+					{
+						label: 'Fokus',
+						value: 'Frontend',
+					},
+				],
+			},
+			keySkills: {
+				title: 'Nyckelkompetenser',
+				items: [
+					'React',
+					'Vue',
+					'TypeScript',
+					'Designsystem',
+					'WCAG',
+					'Node.js',
+					'SCSS',
+					'Git',
+				],
+			},
+		},
 	},
 	intro: {
 		title: 'Introduktion',

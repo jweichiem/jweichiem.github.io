@@ -6,9 +6,10 @@
 
 .card {
   padding: var(--space-100);
-  border: .125rem solid var(--neutral-200);
+  border: .125rem solid var(--neutral-300);
   border-radius: var(--radius-200);
   background: var(--elevation-100);
+  margin-block-end: var(--space-150);
 }
 
 .work-experience {
@@ -51,8 +52,8 @@
     background: var(--neutral-100);
     align-items: center;
     width: 100%;
-    border-top: 0.0625rem solid var(--neutral-200);
-    border-bottom: 0.0625rem solid var(--neutral-200);
+    border-top: 0.0625rem solid var(--neutral-300);
+    border-bottom: 0.0625rem solid var(--neutral-300);
   }
 
   &__logo {
@@ -76,27 +77,23 @@
   }
 }
 
-.skills {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  display: inline-flex;
-  gap: var(--space-50);
-  flex-wrap: wrap;
-
-  &__item {
-    background: var(--main-200);
-    color: var(--main-600);
-    padding: var(--space-25) var(--space-50);
-    border-radius: 2rem;
-    font-size: .75em;
-  }
-}
-
 :root[data-theme='dark'] {
   .work-experience__logo-wrapper {
     background: var(--static-white);
     padding: var(--space-75);
     border-radius: var(--radius-200);
+  }
+}
+
+@include tokens.tablet-up {
+  .home-page {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    margin: 0 auto;
+  }
+
+  .home-layout {
+    grid-column: span 8;
   }
 }

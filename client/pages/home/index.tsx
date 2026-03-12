@@ -5,6 +5,7 @@ import luxidLogo from '../../assets/luxid-logo.svg';
 import placeholder from '../../assets/placeholder.svg';
 import { useI18n } from '../../i18n/index.tsx';
 import ProfileBanner from '../../shared/profile-banner';
+import SkillsList from '../../shared/skills-list';
 import homePageData from './page-data/index.ts';
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
 	const pageData = homePageData[locale];
 
 	return (
-		<>
+		<div className="home-page">
 			<ProfileBanner
 				title={pageData.banner.name}
 				careerDescription={pageData.banner.careerDescription}
@@ -23,19 +24,15 @@ const Home = () => {
 					alt: pageData.banner.profileImageAlt,
 				}}
 				careerStatus={pageData.banner.careerStatus}
-				contactDetails={[
-					{
-						label: pageData.banner.contactGithub,
-						href: 'https://github.com/jweichiem',
-					},
-				]}
+				contactDetails={pageData.banner.contactDetails}
+				desktopSections={pageData.banner.desktopSections}
 			/>
-			<section className="page-layout home-layout">
-				<h2>{pageData.intro.title}</h2>
-				<p>{pageData.intro.description}</p>
-			</section>
 			<div className="page-layout home-layout">
-				<section className="">
+				<section>
+					<h2>{pageData.intro.title}</h2>
+					<p>{pageData.intro.description}</p>
+				</section>
+				<section>
 					<h3>{pageData.workExperienceTitle}</h3>
 					{pageData.workExperience.map((experience, experienceIndex) => (
 						<div className="work-experience" key={experience.company}>
@@ -70,25 +67,17 @@ const Home = () => {
 						</div>
 					))}
 				</section>
-			</div>
-			<div className="page-layout home-layout">
 				<section className="card card--skills">
 					<h3>{pageData.skillsTitle}</h3>
 					{pageData.skills.map((skill) => (
 						<div key={skill.title}>
 							<h4>{skill.title}</h4>
-							<ul className="skills">
-								{skill.items.map((item) => (
-									<li className="skills__item" key={item}>
-										{item}
-									</li>
-								))}
-							</ul>
+							<SkillsList items={skill.items} />
 						</div>
 					))}
 				</section>
 			</div>
-		</>
+		</div>
 	);
 };
 

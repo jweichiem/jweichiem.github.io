@@ -12,7 +12,43 @@ const en = {
 		subtitle: 'Berlin, Germany.',
 		careerStatus: 'Available for work',
 		profileImageAlt: 'Profile picture of Joakim Weise-Chiem',
-		contactGithub: 'GitHub',
+		contactDetails: [
+			{
+				label: 'GitHub',
+				href: 'https://github.com/jweichiem',
+			},
+			{
+				label: 'E-mail',
+				href: 'mailto:joakim.chiem@gmail.com',
+			},
+		],
+		desktopSections: {
+			experienceFocus: {
+				items: [
+					{
+						label: 'Experience',
+						value: '10+ years',
+					},
+					{
+						label: 'Focus',
+						value: 'Frontend',
+					},
+				],
+			},
+			keySkills: {
+				title: 'Key Skills',
+				items: [
+					'React',
+					'Vue',
+					'TypeScript',
+					'Design Systems',
+					'WCAG',
+					'Node.js',
+					'SCSS',
+					'Git',
+				],
+			},
+		},
 	},
 	intro: {
 		title: 'Introduction',

@@ -1,7 +1,7 @@
 @use '../_tokens.scss' as tokens;
 
 .profile-banner {
-  background: var(--main-100);
+  background: var(--neutral-200);
 
   &__title {
     font-size: 1rem;
@@ -18,7 +18,7 @@
 
   &__avatar {
     width: 5.5rem;
-    height: auto;
+    height: 100%;
     max-width: 100%;
 
     border-radius: var(--radius-200);
@@ -78,6 +78,10 @@
       border-radius: 50%;
     }
   }
+
+  &__desktop-sections {
+    display: none;
+  }
 }
 
 @include tokens.tablet-up {
@@ -85,11 +89,62 @@
     gap: var(--space-150);
     padding-block: var(--space-150);
   }
-}
 
-@include tokens.desktop-up {
-  .profile {
-    gap: var(--space-200);
-    padding-block: var(--space-200);
+  .profile-banner {
+    grid-column: span 4;
+    height: 100%;
+    border-right: .0625rem solid var(--neutral-300);
+
+    &__layout {
+      flex-wrap: wrap;
+      padding-block-end: var(--space-100);
+    }
+
+    &__avatar {
+      width: initial;
+    }
+
+    &__contact-details {
+      gap: var(--space-50);
+      padding-block-start: 0;
+      padding-block-end: var(--space-100);
+      background: transparent;
+    }
+
+    &__desktop-sections {
+      display: grid;
+      gap: var(--space-100);
+      padding-block-end: var(--space-150);
+    }
+
+    &__desktop-section {
+      padding-block-start: var(--space-100);
+      border-top: .0625rem solid var(--neutral-300);
+    }
+
+    &__desktop-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-100);
+    }
+
+    &__desktop-heading {
+      margin: 0 0 var(--space-125);
+      color: var(--neutral-400);
+      font-size: .6875rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    &__desktop-value {
+      margin: 0;
+      color: var(--neutral-500);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    &__desktop-skills {
+      display: flex;
+    }
   }
 }
