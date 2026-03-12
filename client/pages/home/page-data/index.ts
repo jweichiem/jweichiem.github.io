@@ -14,6 +14,7 @@ export type HomePageData = {
 		name: string;
 		careerDescription: string;
 		subtitle: string;
+		careerStatus: string;
 		profileImageAlt: string;
 		contactGithub: string;
 	};

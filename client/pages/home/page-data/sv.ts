@@ -8,16 +8,16 @@ const sv = {
 	},
 	banner: {
 		name: 'Joakim Weise-Chiem',
-		careerDescription:
-			'Senior Software Engineer. Tillgänglig för nya möjligheter.',
-		subtitle: 'Baserad i Berlin, Tyskland.',
+		careerDescription: 'Senior Software Engineer',
+		subtitle: 'Berlin, Tyskland.',
+		careerStatus: 'Letar efter en ny roll',
 		profileImageAlt: 'Profilbild på Joakim Weise-Chiem',
 		contactGithub: 'GitHub',
 	},
 	intro: {
 		title: 'Introduktion',
 		description:
-			'Jag är en Senior Software Engineer och är för närvarande baserad i Berlin, Tyskland. Jag har lång erfarenhet av frontend-arkitektur, designsystem och att bygga skalbara UI-komponenter. Jag är en av de första ingenjörerna bakom Skapa, IKEAs designsystem som används av fler än 200 produktteam inom företaget. Mitt arbete har handlat om att utveckla återanvändbara komponenter, förbättra tillgänglighet och prestanda samt skapa verktyg som hjälper team att leverera kundnära funktioner snabbare och mer konsekvent. Jag tycker om att arbeta nära designers och produktteam, lösa verkliga produktproblem med genomtänkta tekniska lösningar och bygga system som skalar i stora organisationer.',
+			'Grundande ingenjör för Skapa - IKEAs designsystem som används av fler än 200 produktteam inom företaget. ',
 	},
 	workExperienceTitle: 'Arbetslivserfarenhet',
 	workExperience: [

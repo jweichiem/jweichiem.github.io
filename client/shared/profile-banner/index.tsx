@@ -5,6 +5,7 @@ type ProfileBannerProps = {
 	title: string;
 	careerDescription: string;
 	subtitle: string;
+	careerStatus: string;
 	contactDetails: {
 		label: string;
 		href: string;
@@ -22,6 +23,7 @@ const ProfileBanner: React.FC<ProfileBannerProps> = ({
 	careerDescription,
 	subtitle,
 	contactDetails,
+	careerStatus,
 	titleTagName = 'h1',
 }) => {
 	return (
@@ -44,14 +46,7 @@ const ProfileBanner: React.FC<ProfileBannerProps> = ({
 						</span>,
 					)}
 					<p className="profile-banner__subtitle">{subtitle}</p>
-
-					<ul className="profile-banner__contact-details">
-						{contactDetails.map((detail) => (
-							<li className="profile-banner__contact-detail" key={detail.href}>
-								<a href={detail.href}>{detail.label}</a>
-							</li>
-						))}
-					</ul>
+					<p className="profile-banner__career-status">{careerStatus}</p>
 				</div>
 			</div>
 		</section>

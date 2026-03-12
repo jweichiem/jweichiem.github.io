@@ -22,6 +22,7 @@ const Home = () => {
 					src: placeholder,
 					alt: pageData.banner.profileImageAlt,
 				}}
+				careerStatus={pageData.banner.careerStatus}
 				contactDetails={[
 					{
 						label: pageData.banner.contactGithub,
@@ -34,19 +35,19 @@ const Home = () => {
 				<p>{pageData.intro.description}</p>
 			</section>
 			<div className="page-layout home-layout">
-				<section className="card">
+				<section className="">
 					<h3>{pageData.workExperienceTitle}</h3>
 					{pageData.workExperience.map((experience, experienceIndex) => (
 						<div className="work-experience" key={experience.company}>
 							<div className="work-experience__logo-wrapper">
-								<h4 className="work-experience__company">
-									{experience.company}
-								</h4>
 								<img
 									className="work-experience__logo"
 									src={workExperienceLogos[experienceIndex]}
 									alt={experience.logoAlt}
 								/>
+								<h4 className="work-experience__company">
+									{experience.company}
+								</h4>
 							</div>
 							{experience.roles.map((role) => (
 								<div
@@ -54,14 +55,16 @@ const Home = () => {
 									key={`${role.title}-${role.dates}`}
 								>
 									<div className="work-experience__role-info">
-										<p lang="en">{role.title}</p>
-										<p>{role.dates}</p>
+										<p className="work-experience__text" lang="en">
+											{role.title}
+										</p>
+										<p className="work-experience__text work-experience__text--secondary">
+											{role.dates}
+										</p>
+										<p className="work-experience__text work-experience__text--tertiary">
+											{role.description}
+										</p>
 									</div>
-									{role.description && (
-										<div className="work-experience__role-description">
-											<p>{role.description}</p>
-										</div>
-									)}
 								</div>
 							))}
 						</div>

@@ -12,32 +12,8 @@
 }
 
 .work-experience {
-  padding-inline-start: var(--space-150);
   position: relative;
-
-  &::before {
-    content: "";
-    display: block;
-    height: .5rem;
-    width: .5rem;
-    background: var(--main-500);
-    position: absolute;
-    inset-inline-start: var(--space-50);
-    inset-block-start: var(--space-25);
-    border-radius: var(--radius-100);
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    inset-inline-start: var(--space-50);
-    border-left: 0.0625rem solid var(--elevation-200);
-    inset-block-end: -1.5rem;
-    inset-block-start: var(--space-75);
-    margin-inline-start: calc(var(--space-25) - 0.0625rem);
-    width: 0.0625rem;
-  }
+  margin-block-end: var(--space-150);
 
   &:last-child::after {
     inset-block-end: 0;
@@ -48,6 +24,7 @@
     gap: var(--space-100);
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-block-end: var(--space-100);
   }
 
   &__role-info {
@@ -61,24 +38,43 @@
   }
 
   &__company {
-    margin-block-start: 0;
+    margin: 0;
     color: var(--static-black);
   }
 
   &__logo-wrapper {
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--space-50);
-    padding: var(--space-75);
+    padding-block: var(--space-75);
     margin-block-end: var(--space-75);
-    border-radius: var(--radius-150);
     background: var(--neutral-100);
+    align-items: center;
+    width: 100%;
+    border-top: 0.0625rem solid var(--neutral-200);
+    border-bottom: 0.0625rem solid var(--neutral-200);
   }
 
   &__logo {
     width: 100%;
-    max-width: 7.5rem;
+    max-width: 3.5rem;
   }
+
+  &__text {
+    margin-block-start: 0;
+    margin-block-end: var(--space-25);
+  }
+
+  &__text--secondary {
+    color: var(--neutral-400);
+    font-size: .75em;
+  }
+
+  &__text--tertiary {
+    color: var(--neutral-500);
+    font-size: .875em;
+  }
+
 }
 
 :root[data-theme='dark'] {

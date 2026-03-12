@@ -41,6 +41,10 @@ $static-black: rgb(24 24 24);
 $elevation-100: #f5f5f5;
 $elevation-200: $neutral-200;
 
+$status-positive-100: rgba(190, 234, 219, 1); // #beeadb
+$status-positive-200: rgba(0, 128, 64, 1); // #2f6553
+$status-positive-300: rgba(0, 100, 50, 1); // #006432
+
 // Dark theme overrides
 $dark-neutral-100: rgb(16 20 24);
 $dark-neutral-200: rgb(42 49 56);
@@ -90,6 +94,10 @@ $dark-elevation-200: $static-white;
   --main-500: #{$main-500};
   --main-600: #{$main-600};
 
+  --status-positive-100: #{$status-positive-100};
+  --status-positive-200: #{$status-positive-200};
+  --status-positive-300: #{$status-positive-300};
+
   --static-white: #{$static-white};
   --static-black: #{$static-black};
   --elevation-100: #{$elevation-100};
@@ -114,6 +122,10 @@ $dark-elevation-200: $static-white;
   --main-400: #{$dark-main-400};
   --main-500: #{$dark-main-500};
   --main-600: #{$dark-main-600};
+
+  --status-positive-100: #{$status-positive-100};
+  --status-positive-200: #{$status-positive-200};
+  --status-positive-300: #{$status-positive-300};
 
   --static-white: #{$static-white};
   --static-black: #{$static-black};
