@@ -1,9 +1,12 @@
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
+import { hydratePageDataCacheFromWindow } from '../app/page-data.ts';
 import { createAppTree } from '../app/createAppTree.tsx';
 import { applyRouteMeta } from '../app/meta.ts';
 import { getLocaleFromPathname } from '../i18n/index.tsx';
 import '../app/index.scss';
+
+hydratePageDataCacheFromWindow();
 
 const rootElement = document.getElementById('root');
 

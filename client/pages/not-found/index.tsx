@@ -1,11 +1,15 @@
 import { Link } from 'wouter';
-import './style.scss';
+import { usePageData } from '../../app/page-data.ts';
 import { useI18n } from '../../i18n/index.tsx';
-import notFoundPageData from './page-data/index.ts';
+import './style.scss';
 
 const NotFound = () => {
-	const { locale, localizePath } = useI18n();
-	const pageData = notFoundPageData[locale];
+	const { localizePath } = useI18n();
+	const pageData = usePageData('not-found');
+
+	if (!pageData) {
+		return null;
+	}
 
 	return (
 		<section className="section">

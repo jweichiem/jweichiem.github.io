@@ -1,17 +1,38 @@
-import './style.scss';
 import ikeaLogo from '../../assets/ikea-logo.svg';
 import knowItLogo from '../../assets/knowit-logo.svg';
 import luxidLogo from '../../assets/luxid-logo.svg';
 import placeholder from '../../assets/placeholder.svg';
-import { useI18n } from '../../i18n/index.tsx';
+import { usePageData } from '../../app/page-data.ts';
 import ProfileBanner from '../../shared/profile-banner';
 import SkillsList from '../../shared/skills-list';
-import homePageData from './page-data/index.ts';
+import './style.scss';
+
+const WORK_LOGO_MAX_WIDTH = 56;
+
+const workExperienceLogos = [
+	{
+		src: ikeaLogo,
+		width: WORK_LOGO_MAX_WIDTH,
+		height: 23,
+	},
+	{
+		src: knowItLogo,
+		width: WORK_LOGO_MAX_WIDTH,
+		height: 13,
+	},
+	{
+		src: luxidLogo,
+		width: WORK_LOGO_MAX_WIDTH,
+		height: 22,
+	},
+] as const;
 
 const Home = () => {
-	const { locale } = useI18n();
-	const workExperienceLogos = [ikeaLogo, knowItLogo, luxidLogo];
-	const pageData = homePageData[locale];
+	const pageData = usePageData('home');
+
+	if (!pageData) {
+		return null;
+	}
 
 	return (
 		<div className="home-page">
@@ -34,38 +55,44 @@ const Home = () => {
 				</section>
 				<section>
 					<h3>{pageData.workExperienceTitle}</h3>
-					{pageData.workExperience.map((experience, experienceIndex) => (
-						<div className="work-experience" key={experience.company}>
-							<div className="work-experience__logo-wrapper">
-								<img
-									className="work-experience__logo"
-									src={workExperienceLogos[experienceIndex]}
-									alt={experience.logoAlt}
-								/>
-								<h4 className="work-experience__company">
-									{experience.company}
-								</h4>
-							</div>
-							{experience.roles.map((role) => (
-								<div
-									className="work-experience__role"
-									key={`${role.title}-${role.dates}`}
-								>
-									<div className="work-experience__role-info">
-										<p className="work-experience__text" lang="en">
-											{role.title}
-										</p>
-										<p className="work-experience__text work-experience__text--secondary">
-											{role.dates}
-										</p>
-										<p className="work-experience__text work-experience__text--tertiary">
-											{role.shortDescription}
-										</p>
-									</div>
+					{pageData.workExperience.map((experience, experienceIndex) => {
+						const logo = workExperienceLogos[experienceIndex];
+
+						return (
+							<div className="work-experience" key={experience.company}>
+								<div className="work-experience__logo-wrapper">
+									<img
+										className="work-experience__logo"
+										src={logo.src}
+										alt={experience.logoAlt}
+										width={logo.width}
+										height={logo.height}
+									/>
+									<h4 className="work-experience__company">
+										{experience.company}
+									</h4>
 								</div>
-							))}
-						</div>
-					))}
+								{experience.roles.map((role) => (
+									<div
+										className="work-experience__role"
+										key={`${role.title}-${role.dates}`}
+									>
+										<div className="work-experience__role-info">
+											<p className="work-experience__text" lang="en">
+												{role.title}
+											</p>
+											<p className="work-experience__text work-experience__text--secondary">
+												{role.dates}
+											</p>
+											<p className="work-experience__text work-experience__text--tertiary">
+												{role.shortDescription}
+											</p>
+										</div>
+									</div>
+								))}
+							</div>
+						);
+					})}
 				</section>
 				<section className="card card--skills">
 					<h3>{pageData.skillsTitle}</h3>

@@ -48,6 +48,8 @@ const ProfileBanner: React.FC<ProfileBannerProps> = ({
 						className="profile-banner__image"
 						src={profileImage.src}
 						alt={profileImage.alt}
+						width="88px"
+						height="88px"
 					/>
 				</div>
 				<div className="profile-banner__description">

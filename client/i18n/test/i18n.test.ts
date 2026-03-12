@@ -1,5 +1,6 @@
 import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, test } from 'vitest';
+import { loadPageData } from '../../app/page-data.ts';
 import { createAppTree } from '../../app/createAppTree.tsx';
 import {
 	applyRouteMeta,
@@ -180,7 +181,10 @@ describe('localized routes', () => {
 		expect(prerenderRoutes).toEqual(['/', '/sv', '/about', '/sv/about']);
 	});
 
-	test('app tree derives locale from the current pathname', () => {
+	test('app tree derives locale from the current pathname', async () => {
+		await loadPageData('about', 'en');
+		await loadPageData('about', 'sv');
+
 		const englishAppHtml = renderToString(
 			createAppTree({ pathname: '/about', search: '' }),
 		);

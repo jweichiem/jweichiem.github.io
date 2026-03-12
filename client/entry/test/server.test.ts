@@ -1,8 +1,8 @@
 import { expect, test } from 'vitest';
 import { prerenderRoutes, render } from '../server.tsx';
 
-test('render returns swedish metadata and content for localized routes', () => {
-	const renderedPage = render('/sv/about');
+test('render returns swedish metadata and content for localized routes', async () => {
+	const renderedPage = await render('/sv/about');
 
 	expect(renderedPage.headHtml).toContain(
 		'<title>Om | Joakim Weise-Chiem</title>',
@@ -19,8 +19,8 @@ test('render returns swedish metadata and content for localized routes', () => {
 	expect(renderedPage.appHtml).toContain('href="/sv/about"');
 });
 
-test('render returns swedish homepage content for /sv', () => {
-	const renderedPage = render('/sv');
+test('render returns swedish homepage content for /sv', async () => {
+	const renderedPage = await render('/sv');
 
 	expect(renderedPage.headHtml).toContain(
 		'content="Personlig webbplats och profil för Joakim Weise-Chiem."',

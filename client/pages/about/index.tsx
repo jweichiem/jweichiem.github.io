@@ -1,10 +1,12 @@
+import { usePageData } from '../../app/page-data.ts';
 import './style.scss';
-import { useI18n } from '../../i18n/index.tsx';
-import aboutPageData from './page-data/index.ts';
 
 const About = () => {
-	const { locale } = useI18n();
-	const pageData = aboutPageData[locale];
+	const pageData = usePageData('about');
+
+	if (!pageData) {
+		return null;
+	}
 
 	return (
 		<>
