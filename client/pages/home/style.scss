@@ -74,11 +74,29 @@
     color: var(--neutral-500);
     font-size: .875em;
   }
+}
 
+.skills {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: inline-flex;
+  gap: var(--space-50);
+  flex-wrap: wrap;
+
+  &__item {
+    background: var(--main-200);
+    color: var(--main-600);
+    padding: var(--space-25) var(--space-50);
+    border-radius: 2rem;
+    font-size: .75em;
+  }
 }
 
 :root[data-theme='dark'] {
   .work-experience__logo-wrapper {
     background: var(--static-white);
+    padding: var(--space-75);
+    border-radius: var(--radius-200);
   }
 }

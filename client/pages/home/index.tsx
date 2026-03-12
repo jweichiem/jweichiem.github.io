@@ -77,9 +77,11 @@ const Home = () => {
 					{pageData.skills.map((skill) => (
 						<div key={skill.title}>
 							<h4>{skill.title}</h4>
-							<ul>
+							<ul className="skills">
 								{skill.items.map((item) => (
-									<li key={item}>{item}</li>
+									<li className="skills__item" key={item}>
+										{item}
+									</li>
 								))}
 							</ul>
 						</div>
