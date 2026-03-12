@@ -30,12 +30,16 @@ const sv = {
 					dates: 'Dec 2022 - Nu',
 					description:
 						'Som Senior Software Engineer på IKEA är jag en av de första ingenjörerna bakom Skapa, IKEAs designsystem som används av fler än 200 produktteam inom företaget. Mitt arbete omfattar att designa och bygga återanvändbara komponenter, förbättra tillgänglighet och prestanda samt skapa verktyg som hjälper team att leverera kundnära funktioner snabbare och mer konsekvent. Jag tycker om att arbeta nära designers och produktteam, lösa verkliga produktproblem med genomtänkta tekniska lösningar och bygga system som skalar i stora organisationer.',
+					shortDescription:
+						'Byggde och skalade grunden för IKEAs designsystem.',
 				},
 				{
 					title: 'Software Engineer',
 					dates: 'Feb 2020 - Nov 2022',
 					description:
 						'År 2020 började jag direkt på IKEA för att bygga ett nytt designsystem baserat på det tidigare designsystemet, med målet att driva omdesignen av IKEAs e-handelsupplevelse. Som en av de första ingenjörerna i teamet fick jag möjlighet att forma den tekniska riktningen för designsystemet och arbeta nära designers och produktteam i hela företaget för att lösa verkliga produktproblem med genomtänkta tekniska lösningar.',
+					shortDescription:
+						'Formade den tekniska riktningen för designsystemet.',
 				},
 			],
 		},
@@ -48,6 +52,8 @@ const sv = {
 					dates: 'Aug 2019 - Jan 2020',
 					description:
 						'Utvecklade återanvändbara och modulära React-komponenter med SCSS för den första versionen av IKEAs designsystem Fundament, distribuerat via ett privat NPM-register (Verdaccio), med starkt fokus på tillgänglighet, skalbarhet och långsiktig underhållbarhet i ett litet tvärfunktionellt team.',
+					shortDescription:
+						'Byggde den första versionen av IKEAs designsystem.',
 				},
 			],
 		},
@@ -60,18 +66,24 @@ const sv = {
 					dates: 'Feb 2016 - Aug 2019',
 					description:
 						'Arbetade med att leverera och underhålla digitala upplevelser för företagskunder, med starkt fokus på responsiva e-postmallar och HTML5-banners för Luxus egen plattform för marketing automation, Drafthorse. Jag byggde återanvändbara mallar med HTML, CSS och etablerade arbetssätt för responsiv e-post, och säkerställde kompatibilitet i stora e-postklienter och på olika enheter samtidigt som jag stöttade marknads- och CRM-kampanjer. Senare gick jag vidare till ett konsultuppdrag för IKEA i ett team som knöt ihop UI-representationen mellan de tre e-handelslösningarna som användes då.',
+					shortDescription:
+						'Byggde digitala kampanjer och responsiva e-postsystem.',
 				},
 				{
 					title: 'CMS Operator',
 					dates: 'Feb 2015 - Feb 2016',
 					description:
 						'Ansvarade för att hantera och underhålla flerspråkigt webbplatsinnehåll för en företagskund med FatWire CMS och Adobe Experience Manager (AEM). Rollen omfattade innehållsuppdateringar, felsökning av tekniska problem och att säkerställa att webbplatser fungerade korrekt i olika webbläsare och på olika enheter. Jag justerade regelbundet CSS och JavaScript för att säkerställa att designen fungerade som tänkt och arbetade med Pug- och YAML-baserad templating för att strukturera och underhålla återanvändbara sidlayouter.',
+					shortDescription:
+						'Underhöll flerspråkiga webbplatser och frontend-fixar.',
 				},
 				{
 					title: 'CMS Operator Intern',
 					dates: 'Sep 2014 - Feb 2015',
 					description:
 						'Bidrog till att hantera och uppdatera webbplatsinnehåll för en kund i FatWire CMS, med fokus på innehållsuppdateringar och grundläggande SEO-förbättringar. Stöttade frontend-justeringar med HTML, CSS, jQuery och Bootstrap för att säkerställa att sidor renderades korrekt i olika webbläsare och på olika enheter.',
+					shortDescription:
+						'Stöttade CMS-uppdateringar och enklare frontendarbete.',
 				},
 			],
 		},

@@ -62,7 +62,7 @@ const Home = () => {
 											{role.dates}
 										</p>
 										<p className="work-experience__text work-experience__text--tertiary">
-											{role.description}
+											{role.shortDescription}
 										</p>
 									</div>
 								</div>

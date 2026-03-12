@@ -30,6 +30,7 @@ export type HomePageData = {
 			title: string;
 			dates: string;
 			description: string;
+			shortDescription: string;
 		}[];
 	}[];
 	skillsTitle: string;
