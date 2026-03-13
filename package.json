@@ -16,6 +16,7 @@
 		"preview": "vite preview",
 		"start:ssr": "NODE_ENV=production node --experimental-strip-types server/index.ts",
 		"test": "vitest",
+		"test:a11y": "vitest run --config vitest.config.ts client/entry/test/accessibility.test.ts",
 		"test:server": "vitest run --config vitest.config.ts"
 	},
 	"dependencies": {
@@ -36,7 +37,9 @@
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
+		"axe-core": "^4.11.1",
 		"babel-plugin-react-compiler": "^1.0.0",
+		"jsdom": "^28.1.0",
 		"sass": "1.97.3",
 		"typescript": "~5.9.3",
 		"vite": "^7.3.1",
