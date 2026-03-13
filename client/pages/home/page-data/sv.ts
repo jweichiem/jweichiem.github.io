@@ -1,11 +1,4 @@
 const sv = {
-	route: {
-		label: 'Hem',
-		meta: {
-			title: 'Hem | Joakim Weise-Chiem',
-			description: 'Personlig webbplats och profil för Joakim Weise-Chiem.',
-		},
-	},
 	banner: {
 		name: 'Joakim Weise-Chiem',
 		careerDescription: 'Senior Software Engineer',

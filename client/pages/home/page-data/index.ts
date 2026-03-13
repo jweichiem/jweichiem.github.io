@@ -3,13 +3,6 @@ import en from './en.ts';
 import sv from './sv.ts';
 
 export type HomePageData = {
-	route: {
-		label: string;
-		meta: {
-			title: string;
-			description: string;
-		};
-	};
 	banner: {
 		name: string;
 		careerDescription: string;

@@ -1,11 +1,4 @@
 const en = {
-	route: {
-		label: 'Home',
-		meta: {
-			title: 'Home | Joakim Weise-Chiem',
-			description: 'Personal website and profile for Joakim Weise-Chiem.',
-		},
-	},
 	banner: {
 		name: 'Joakim Weise-Chiem',
 		careerDescription: 'Senior Software Engineer',

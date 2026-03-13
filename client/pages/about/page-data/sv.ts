@@ -1,12 +1,4 @@
 const sv = {
-	route: {
-		label: 'Om',
-		meta: {
-			title: 'Om | Joakim Weise-Chiem',
-			description:
-				'Läs mer om den här webbplatsen och arbetet bakom hur den byggdes.',
-		},
-	},
 	title: 'Om den här webbplatsen',
 	paragraphs: [
 		'Den här webbplatsen byggdes för att visa lite av mitt arbete, min erfarenhet och hur jag tänker kring produktutveckling som Senior Software Engineer.',

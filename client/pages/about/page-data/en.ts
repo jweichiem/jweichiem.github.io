@@ -1,12 +1,4 @@
 const en = {
-	route: {
-		label: 'About',
-		meta: {
-			title: 'About | Joakim Weise-Chiem',
-			description:
-				'Learn more about this website and the work behind building it.',
-		},
-	},
 	title: 'About this website',
 	paragraphs: [
 		'This website was built to showcase a bit of my work, experience, and how I approach building products as a Senior Software Engineer.',
