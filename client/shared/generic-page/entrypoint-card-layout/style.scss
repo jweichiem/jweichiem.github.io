@@ -1,6 +1,9 @@
 @use '../../_tokens.scss' as tokens;
 
 .entrypoint-card-layout {
+  display: flex;
+  flex-direction: column;
+
   &__section {
     margin-block-end: var(--space-150);
   }
@@ -23,9 +26,16 @@
 
 @include tokens.tablet-up {
   .entrypoint-card-layout {
+    min-height: 100%;
+
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: stretch;
+    }
+
+    &__section:last-child {
+      flex: 1;
+      margin-block-end: 0;
     }
   }
 }
