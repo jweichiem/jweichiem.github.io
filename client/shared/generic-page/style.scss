@@ -1,0 +1,24 @@
+@use '../_tokens.scss' as tokens;
+
+.generic-page {
+  display: block;
+
+  &__layout {
+    padding-block-start: var(--space-100);
+  }
+}
+
+@include tokens.tablet-up {
+  .generic-page {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    margin: 0 auto;
+    max-width: 67.5rem;
+
+    &__layout {
+      grid-column: span 8;
+      border-right: .0625rem solid var(--neutral-300);
+    }
+  }
+}

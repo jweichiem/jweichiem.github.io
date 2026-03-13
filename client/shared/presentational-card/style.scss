@@ -1,0 +1,27 @@
+.presentational-card {
+  padding: var(--space-100);
+  border: .125rem solid var(--neutral-300);
+  background: var(--elevation-100);
+  margin-block-end: var(--space-150);
+  height: 100%;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-block-start: 0;
+  }
+
+  ul {
+    margin-block-end: 0;
+    padding-inline-start: 1.25rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .presentational-card {
+    padding-inline: var(--space-150);
+  }
+}

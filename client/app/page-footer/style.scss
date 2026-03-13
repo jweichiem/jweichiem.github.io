@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: var(--space-100);
+    flex-wrap: wrap;
   }
 
   &__language-selector {
@@ -36,7 +37,7 @@
     align-items: center;
     min-height: 2.25rem;
     padding: 0 var(--space-75);
-    border: .0625rem solid var(--neutral-300);
+    border: .0625rem solid var(--neutral-400);
     border-radius: 999rem;
     text-decoration: none;
 

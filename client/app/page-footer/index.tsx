@@ -16,7 +16,6 @@ const Footer = () => {
 	return (
 		<footer className="page-footer">
 			<div className="page-layout page-footer__content">
-				<p>{footerData.copyright}</p>
 				<div className="page-footer__language-selector">
 					<span className="page-footer__language-label">
 						{footerData.languageLabel}
@@ -47,6 +46,7 @@ const Footer = () => {
 						</ul>
 					</nav>
 				</div>
+				<p>{footerData.copyright}</p>
 			</div>
 		</footer>
 	);

@@ -1,0 +1,74 @@
+.cv-layout {
+  &__section {
+    margin-block-end: var(--space-150);
+  }
+
+  &__section-heading {
+    margin-block-start: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  &__work-experience {
+    position: relative;
+    margin-block-end: var(--space-150);
+  }
+
+  &__work-experience-role {
+    display: flex;
+    gap: var(--space-100);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-block-end: var(--space-100);
+  }
+
+  &__work-experience-role-info {
+    min-width: 12.5rem;
+  }
+
+  &__work-experience-company {
+    margin: 0;
+    color: var(--static-black);
+  }
+
+  &__work-experience-logo-wrapper {
+    display: inline-flex;
+    flex-direction: row;
+    gap: var(--space-50);
+    padding-block: var(--space-75);
+    margin-block-end: var(--space-75);
+    background: var(--neutral-100);
+    align-items: center;
+    width: 100%;
+    border-top: 0.0625rem solid var(--neutral-300);
+    border-bottom: 0.0625rem solid var(--neutral-300);
+  }
+
+  &__work-experience-logo {
+    width: 100%;
+    max-width: 3.5rem;
+  }
+
+  &__work-experience-text {
+    margin-block-start: 0;
+    margin-block-end: var(--space-25);
+  }
+
+  &__work-experience-text--secondary {
+    color: var(--neutral-400);
+    font-size: .75em;
+  }
+
+  &__work-experience-text--tertiary {
+    color: var(--neutral-500);
+    font-size: .875em;
+  }
+}
+
+:root[data-theme='dark'] {
+  .cv-layout__work-experience-logo-wrapper {
+    background: var(--static-white);
+    padding: var(--space-75);
+    border-radius: var(--radius-200);
+  }
+}

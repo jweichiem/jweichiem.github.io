@@ -1,18 +1,18 @@
 import type { ComponentType } from 'react';
 import type { Locale } from '../i18n/index.tsx';
-import type { PageKey } from './page-data.ts';
 import {
 	createLocalizedPath,
 	stripLocaleFromPathname,
 	supportedLocales,
 } from '../i18n/index.tsx';
-import Accessibility from '../pages/accessibility/index.tsx';
 import About from '../pages/about/index.tsx';
+import Accessibility from '../pages/accessibility/index.tsx';
 import Cv from '../pages/cv/index.tsx';
 import Engineering from '../pages/engineering/index.tsx';
 import Home from '../pages/home/index.tsx';
 import NotFound from '../pages/not-found/index.tsx';
 import { stripBasePath } from '../shared/base-path.ts';
+import type { PageKey } from './page-data.ts';
 
 export interface RouteMeta {
 	title: string;
@@ -39,14 +39,16 @@ const homeRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
 		label: 'Home',
 		meta: {
 			title: 'Home | Joakim Weise-Chiem',
-			description: 'Personal website and profile for Joakim Weise-Chiem.',
+			description:
+				'Frontend engineer focused on design systems, accessibility, and maintainable web architecture.',
 		},
 	},
 	sv: {
 		label: 'Hem',
 		meta: {
 			title: 'Hem | Joakim Weise-Chiem',
-			description: 'Personlig webbplats och profil för Joakim Weise-Chiem.',
+			description:
+				'Frontendingenjör med fokus på designsystem, tillgänglighet och underhållbar webbarkitektur.',
 		},
 	},
 };
@@ -70,24 +72,25 @@ const aboutRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
 	},
 };
 
-const engineeringRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
-	en: {
-		label: 'Engineering',
-		meta: {
-			title: 'Engineering | Joakim Weise-Chiem',
-			description:
-				'Architecture notes, engineering decisions, and quality standards behind this site.',
+const engineeringRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> =
+	{
+		en: {
+			label: 'Engineering',
+			meta: {
+				title: 'Engineering | Joakim Weise-Chiem',
+				description:
+					'Architecture notes, engineering decisions, and quality standards behind this site.',
+			},
 		},
-	},
-	sv: {
-		label: 'Engineering',
-		meta: {
-			title: 'Engineering | Joakim Weise-Chiem',
-			description:
-				'Arkitekturnoter, tekniska beslut och kvalitetsnivåer bakom den här webbplatsen.',
+		sv: {
+			label: 'Engineering',
+			meta: {
+				title: 'Engineering | Joakim Weise-Chiem',
+				description:
+					'Arkitekturnoter, tekniska beslut och kvalitetsnivåer bakom den här webbplatsen.',
+			},
 		},
-	},
-};
+	};
 
 const accessibilityRouteCopy: Record<
 	Locale,

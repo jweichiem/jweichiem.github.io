@@ -1,9 +1,9 @@
 import type { Locale } from '../../../i18n/index.tsx';
-import type { GenericPageData } from '../../shared-page-data.ts';
+import type { CardLayoutPageData } from '../../../shared/types.ts';
 import en from './en.ts';
 import sv from './sv.ts';
 
-export type AccessibilityPageData = GenericPageData;
+export type AccessibilityPageData = CardLayoutPageData;
 
 const accessibilityPageData: Record<Locale, AccessibilityPageData> = {
 	en,

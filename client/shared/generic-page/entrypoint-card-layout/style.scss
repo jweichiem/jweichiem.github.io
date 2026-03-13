@@ -1,0 +1,31 @@
+@use '../../_tokens.scss' as tokens;
+
+.entrypoint-card-layout {
+  &__section {
+    margin-block-end: var(--space-150);
+  }
+
+  &__section-heading {
+    margin-block-start: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  &__grid {
+    display: grid;
+    gap: var(--space-100);
+  }
+
+  &__card {
+    height: 100%;
+  }
+}
+
+@include tokens.tablet-up {
+  .entrypoint-card-layout {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+  }
+}

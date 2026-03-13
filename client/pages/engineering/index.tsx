@@ -1,5 +1,5 @@
 import { usePageData } from '../../app/page-data.ts';
-import './style.scss';
+import GenericPage from '../../shared/generic-page/index.tsx';
 
 const Engineering = () => {
 	const pageData = usePageData('engineering');
@@ -8,14 +8,7 @@ const Engineering = () => {
 		return null;
 	}
 
-	return (
-		<section className="section page-layout about-layout">
-			<h1>{pageData.title}</h1>
-			{pageData.paragraphs.map((paragraph) => (
-				<p key={paragraph}>{paragraph}</p>
-			))}
-		</section>
-	);
+	return <GenericPage layout="card" pageData={pageData} />;
 };
 
 export default Engineering;

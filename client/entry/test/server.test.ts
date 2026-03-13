@@ -23,11 +23,12 @@ test('render returns swedish homepage content for /sv', async () => {
 	const renderedPage = await render('/sv');
 
 	expect(renderedPage.headHtml).toContain(
-		'content="Personlig webbplats och profil för Joakim Weise-Chiem."',
+		'content="Frontendingenjör med fokus på designsystem, tillgänglighet och underhållbar webbarkitektur."',
 	);
+	expect(renderedPage.appHtml).toContain('<h1 class="profile-banner__title"');
 	expect(renderedPage.appHtml).toContain('Introduktion');
-	expect(renderedPage.appHtml).toContain('Arbetslivserfarenhet');
-	expect(renderedPage.appHtml).toContain('Kompetenser');
+	expect(renderedPage.appHtml).toContain('Utforska webbplatsen');
+	expect(renderedPage.appHtml).toContain('Visa tillgänglighet');
 });
 
 test('ssr prerender routes include localized swedish paths', () => {
@@ -43,4 +44,14 @@ test('ssr prerender routes include localized swedish paths', () => {
 		'/about',
 		'/sv/about',
 	]);
+});
+
+test('generic pages render a single h1 alongside the shared banner', async () => {
+	const renderedPage = await render('/about');
+	const h1Matches = renderedPage.appHtml.match(/<h1\b/g) ?? [];
+
+	expect(h1Matches).toHaveLength(1);
+	expect(renderedPage.appHtml).toContain('<h2 class="profile-banner__title"');
+	expect(renderedPage.appHtml).toContain('Joakim Weise-Chiem');
+	expect(renderedPage.appHtml).toContain('About this website');
 });

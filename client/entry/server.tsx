@@ -1,7 +1,7 @@
 import { renderToString } from 'react-dom/server';
-import { loadPageData, serializePageDataCache } from '../app/page-data.ts';
 import { createAppTree } from '../app/createAppTree.tsx';
 import { createHeadHtml } from '../app/meta.ts';
+import { loadPageData, serializePageDataCache } from '../app/page-data.ts';
 import { prerenderRoutes, resolveRoute } from '../app/routes.ts';
 import { getLocaleFromUrl } from '../i18n/index.tsx';
 import { prependBasePath } from '../shared/base-path.ts';

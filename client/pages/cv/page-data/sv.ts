@@ -1,126 +1,168 @@
 const sv = {
-	title: 'CV',
-	paragraphs: [
-		'Senior Software Engineer med frontendfokus och erfarenhet inom designsystem, tillgänglighet, återanvändbar UI-arkitektur och användarnära produktkvalitet.',
-		'Jag har arbetat i produktteam, konsultroller och plattformsnära arbete, med ett starkt intresse för underhållbara system som hjälper team att leverera konsekvent.',
+	banner: {
+		name: 'Joakim Weise-Chiem',
+		careerDescription: 'Senior Software Engineer',
+		subtitle: 'Berlin, Tyskland.',
+		careerStatus: 'Letar efter en ny roll',
+		profileImageAlt: 'Profilbild på Joakim Weise-Chiem',
+		contactDetails: [
+			{
+				label: 'GitHub',
+				href: 'https://github.com/jweichiem',
+			},
+			{
+				label: 'E-post',
+				href: 'mailto:joakim.chiem@gmail.com',
+			},
+		],
+		desktopSections: {
+			experienceFocus: {
+				items: [
+					{
+						label: 'Erfarenhet',
+						value: '10+ år',
+					},
+					{
+						label: 'Fokus',
+						value: 'Frontend',
+					},
+				],
+			},
+			keySkills: {
+				title: 'Nyckelkompetenser',
+				items: [
+					'React',
+					'Vue',
+					'TypeScript',
+					'Designsystem',
+					'WCAG',
+					'Node.js',
+					'SCSS',
+					'Git',
+				],
+			},
+		},
+	},
+	intro: {
+		title: 'Introduktion',
+		description:
+			'Grundande ingenjör för Skapa - IKEAs designsystem som används av fler än 200 produktteam inom företaget. ',
+	},
+	workExperienceTitle: 'Arbetslivserfarenhet',
+	workExperience: [
+		{
+			company: 'IKEA',
+			logoAlt: 'IKEA',
+			roles: [
+				{
+					title: 'Senior Software Engineer',
+					dates: 'Dec 2022 - Nu',
+					description:
+						'Som Senior Software Engineer på IKEA är jag en av de första ingenjörerna bakom Skapa, IKEAs designsystem som används av fler än 200 produktteam inom företaget. Mitt arbete omfattar att designa och bygga återanvändbara komponenter, förbättra tillgänglighet och prestanda samt skapa verktyg som hjälper team att leverera kundnära funktioner snabbare och mer konsekvent. Jag tycker om att arbeta nära designers och produktteam, lösa verkliga produktproblem med genomtänkta tekniska lösningar och bygga system som skalar i stora organisationer.',
+					shortDescription:
+						'Byggde och skalade grunden för IKEAs designsystem.',
+				},
+				{
+					title: 'Software Engineer',
+					dates: 'Feb 2020 - Nov 2022',
+					description:
+						'År 2020 började jag direkt på IKEA för att bygga ett nytt designsystem baserat på det tidigare designsystemet, med målet att driva omdesignen av IKEAs e-handelsupplevelse. Som en av de första ingenjörerna i teamet fick jag möjlighet att forma den tekniska riktningen för designsystemet och arbeta nära designers och produktteam i hela företaget för att lösa verkliga produktproblem med genomtänkta tekniska lösningar.',
+					shortDescription:
+						'Formade den tekniska riktningen för designsystemet.',
+				},
+			],
+		},
+		{
+			company: 'Cybercom (KnowIT)',
+			logoAlt: 'Cybercom (KnowIT)',
+			roles: [
+				{
+					title: 'Consultant',
+					dates: 'Aug 2019 - Jan 2020',
+					description:
+						'Utvecklade återanvändbara och modulära React-komponenter med SCSS för den första versionen av IKEAs designsystem Fundament, distribuerat via ett privat NPM-register (Verdaccio), med starkt fokus på tillgänglighet, skalbarhet och långsiktig underhållbarhet i ett litet tvärfunktionellt team.',
+					shortDescription:
+						'Byggde den första versionen av IKEAs designsystem.',
+				},
+			],
+		},
+		{
+			company: 'Luxus Worldwide (Luxid Group)',
+			logoAlt: 'Luxus Worldwide (Luxid Group)',
+			roles: [
+				{
+					title: 'Developer',
+					dates: 'Feb 2016 - Aug 2019',
+					description:
+						'Arbetade med att leverera och underhålla digitala upplevelser för företagskunder, med starkt fokus på responsiva e-postmallar och HTML5-banners för Luxus egen plattform för marketing automation, Drafthorse. Jag byggde återanvändbara mallar med HTML, CSS och etablerade arbetssätt för responsiv e-post, och säkerställde kompatibilitet i stora e-postklienter och på olika enheter samtidigt som jag stöttade marknads- och CRM-kampanjer. Senare gick jag vidare till ett konsultuppdrag för IKEA i ett team som knöt ihop UI-representationen mellan de tre e-handelslösningarna som användes då.',
+					shortDescription:
+						'Byggde digitala kampanjer och responsiva e-postsystem.',
+				},
+				{
+					title: 'CMS Operator',
+					dates: 'Feb 2015 - Feb 2016',
+					description:
+						'Ansvarade för att hantera och underhålla flerspråkigt webbplatsinnehåll för en företagskund med FatWire CMS och Adobe Experience Manager (AEM). Rollen omfattade innehållsuppdateringar, felsökning av tekniska problem och att säkerställa att webbplatser fungerade korrekt i olika webbläsare och på olika enheter. Jag justerade regelbundet CSS och JavaScript för att säkerställa att designen fungerade som tänkt och arbetade med Pug- och YAML-baserad templating för att strukturera och underhålla återanvändbara sidlayouter.',
+					shortDescription:
+						'Underhöll flerspråkiga webbplatser och frontend-fixar.',
+				},
+				{
+					title: 'CMS Operator Intern',
+					dates: 'Sep 2014 - Feb 2015',
+					description:
+						'Bidrog till att hantera och uppdatera webbplatsinnehåll för en kund i FatWire CMS, med fokus på innehållsuppdateringar och grundläggande SEO-förbättringar. Stöttade frontend-justeringar med HTML, CSS, jQuery och Bootstrap för att säkerställa att sidor renderades korrekt i olika webbläsare och på olika enheter.',
+					shortDescription:
+						'Stöttade CMS-uppdateringar och enklare frontendarbete.',
+				},
+			],
+		},
 	],
-	sections: [
+	skillsTitle: 'Kompetenser',
+	skills: [
 		{
-			title: 'Utvalda resultat',
-			cards: [
-				{
-					title: 'Designsystem i stor skala',
-					description:
-						'Ett återkommande tema i mitt arbete har varit att bygga återanvändbara system som stödjer fler team än en enskild produktyta.',
-					items: [
-						'Grundande ingenjör för Skapa, IKEAs designsystem.',
-						'Bidrog till system som används av 200+ produktteam.',
-						'Fokus på återanvändbara komponenter, tillgänglighet och skalbara implementationsmönster.',
-					],
-				},
-				{
-					title: 'Användarnära kvalitet',
-					description:
-						'Mitt arbete ligger ofta nära gränssnittet, där implementationsdetaljer får synlig effekt.',
-					items: [
-						'Förbättrade underhållbarheten i kundnära UI.',
-						'Arbetade nära designers och produktteam.',
-						'Balanserade praktisk leverans med långsiktig frontendkvalitet.',
-					],
-				},
+			title: 'Frontend / Webb',
+			items: [
+				'React',
+				'Vue',
+				'Web Components',
+				'Storybook',
+				'HTML',
+				'CSS',
+				'SCSS',
+				'Typescript',
+				'Node.js',
+				'Responsiv Design',
+				'Designsystem',
+				'Design Tokens',
+				'Style Dictionary',
 			],
 		},
 		{
-			title: 'Erfarenhet',
-			cards: [
-				{
-					title: 'IKEA',
-					description:
-						'Senior Software Engineer och tidigare Software Engineer.',
-					items: [
-						'Senior Software Engineer — Dec 2022 till nu',
-						'Software Engineer — Feb 2020 till Nov 2022',
-						'Byggde och skalade grunden för designsystem, återanvändbara komponenter och verktyg.',
-					],
-				},
-				{
-					title: 'Cybercom (KnowIT)',
-					description:
-						'Konsult som arbetade med den första versionen av IKEAs designsystem.',
-					items: [
-						'Consultant — Aug 2019 till Jan 2020',
-						'Byggde modulära React-komponenter med SCSS.',
-						'Arbetade med tillgänglighet, skalbarhet och privat paketdistribution.',
-					],
-				},
-				{
-					title: 'Luxus Worldwide (Luxid Group)',
-					description:
-						'Utvecklar- och CMS-roller inom digital produktion och frontendunderhåll.',
-					items: [
-						'Developer — Feb 2016 till Aug 2019',
-						'CMS Operator — Feb 2015 till Feb 2016',
-						'CMS Operator Intern — Sep 2014 till Feb 2015',
-					],
-				},
+			title: 'Verktyg / Arbetsflöde',
+			items: [
+				'Git',
+				'GitHub Workflows',
+				'Infrastructure as Code',
+				'A/B Testing',
 			],
 		},
 		{
-			title: 'Kompetenser',
-			cards: [
-				{
-					title: 'Frontend engineering',
-					description: 'Kärnstyrkor i implementation.',
-					items: [
-						'React',
-						'Vue',
-						'TypeScript',
-						'SCSS',
-						'Node.js',
-						'Responsiva gränssnitt',
-					],
-				},
-				{
-					title: 'System och arbetssätt',
-					description:
-						'Områden där jag ofta arbetar bortom enskilda komponenter.',
-					items: [
-						'Designsystem',
-						'Design tokens',
-						'Storybook',
-						'Git och GitHub workflows',
-						'Tvärfunktionellt samarbete',
-					],
-				},
-				{
-					title: 'Tillgänglighet och kvalitet',
-					description:
-						'Kvalitetsområden som jag behandlar som en normal del av frontend engineering.',
-					items: [
-						'WCAG',
-						'Inkluderande design',
-						'Underhållbarhet',
-						'Återanvändbar UI-arkitektur',
-					],
-				},
+			title: 'Tillgänglighet',
+			items: ['WCAG', 'Inkluderande design'],
+		},
+		{
+			title: 'Metodiker',
+			items: [
+				'Agilt arbetssätt',
+				'Problemlösning',
+				'Tvärfunktionellt samarbete',
 			],
 		},
 		{
 			title: 'Språk',
-			cards: [
-				{
-					title: 'Talade och skrivna språk',
-					description: 'Arbetsspråk som är relevanta för min nuvarande profil.',
-					items: [
-						'Engelska — Flytande',
-						'Svenska — Flytande',
-						'Tyska — Nybörjare',
-					],
-				},
-			],
+			items: ['Engelska (flytande)', 'Svenska (flytande)', 'Tyska (nybörjare)'],
 		},
 	],
-	footnote: '',
 } as const;
 
 export default sv;

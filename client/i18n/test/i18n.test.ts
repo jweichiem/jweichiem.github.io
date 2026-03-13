@@ -1,12 +1,12 @@
 import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, test } from 'vitest';
-import { loadPageData } from '../../app/page-data.ts';
 import { createAppTree } from '../../app/createAppTree.tsx';
 import {
 	applyRouteMeta,
 	createHeadHtml,
 	getRouteMeta,
 } from '../../app/meta.ts';
+import { loadPageData } from '../../app/page-data.ts';
 import { prerenderRoutes, resolveRoute } from '../../app/routes.ts';
 import {
 	normalizeBasePath,

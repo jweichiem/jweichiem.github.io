@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import type { Locale } from '../i18n/index.tsx';
 import { useI18n } from '../i18n/index.tsx';
-import type { AccessibilityPageData } from '../pages/accessibility/page-data/index.ts';
-import type { EngineeringPageData } from '../pages/engineering/page-data/index.ts';
 import type { AboutPageData } from '../pages/about/page-data/index.ts';
+import type { AccessibilityPageData } from '../pages/accessibility/page-data/index.ts';
+import type { CvPageData } from '../pages/cv/page-data/index.ts';
+import type { EngineeringPageData } from '../pages/engineering/page-data/index.ts';
 import type { HomePageData } from '../pages/home/page-data/index.ts';
 import type { NotFoundPageData } from '../pages/not-found/page-data/index.ts';
-import type { CvPageData } from '../pages/cv/page-data/index.ts';
 
 export type PageKey =
 	| 'about'
