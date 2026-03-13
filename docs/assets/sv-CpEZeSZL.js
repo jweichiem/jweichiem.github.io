@@ -1,1 +1,0 @@
-const e={route:{meta:{title:"Sidan kunde inte hittas | Joakim Weise-Chiem",description:"Den begärda sidan kunde inte hittas."}},title:"Den begärda sidan kunde inte hittas.",description:"Sidan du begärde finns inte.",backHome:"Gå tillbaka till startsidan"};export{e as default};
