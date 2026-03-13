@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react';
 import type { Locale } from '../i18n/index.tsx';
 import { useI18n } from '../i18n/index.tsx';
+import type { AccessibilityPageData } from '../pages/accessibility/page-data/index.ts';
+import type { EngineeringPageData } from '../pages/engineering/page-data/index.ts';
 import type { AboutPageData } from '../pages/about/page-data/index.ts';
 import type { HomePageData } from '../pages/home/page-data/index.ts';
 import type { NotFoundPageData } from '../pages/not-found/page-data/index.ts';
+import type { CvPageData } from '../pages/cv/page-data/index.ts';
 
-export type PageKey = 'about' | 'home' | 'not-found';
+export type PageKey =
+	| 'about'
+	| 'home'
+	| 'not-found'
+	| 'accessibility'
+	| 'engineering'
+	| 'cv';
 
 export interface PageDataMap {
 	about: AboutPageData;
 	home: HomePageData;
 	'not-found': NotFoundPageData;
+	accessibility: AccessibilityPageData;
+	engineering: EngineeringPageData;
+	cv: CvPageData;
 }
 
 type PageDataLoader<TPageKey extends PageKey> = (
@@ -30,6 +42,18 @@ const pageDataLoaders: { [TPageKey in PageKey]: PageDataLoader<TPageKey> } = {
 		locale === 'sv'
 			? (await import('../pages/not-found/page-data/sv.ts')).default
 			: (await import('../pages/not-found/page-data/en.ts')).default,
+	accessibility: async (locale) =>
+		locale === 'sv'
+			? (await import('../pages/accessibility/page-data/sv.ts')).default
+			: (await import('../pages/accessibility/page-data/en.ts')).default,
+	engineering: async (locale) =>
+		locale === 'sv'
+			? (await import('../pages/engineering/page-data/sv.ts')).default
+			: (await import('../pages/engineering/page-data/en.ts')).default,
+	cv: async (locale) =>
+		locale === 'sv'
+			? (await import('../pages/cv/page-data/sv.ts')).default
+			: (await import('../pages/cv/page-data/en.ts')).default,
 };
 
 const pageDataCache = new Map<string, PageDataMap[PageKey]>();

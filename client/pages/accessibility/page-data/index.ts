@@ -3,11 +3,11 @@ import type { GenericPageData } from '../../shared-page-data.ts';
 import en from './en.ts';
 import sv from './sv.ts';
 
-export type AboutPageData = GenericPageData;
+export type AccessibilityPageData = GenericPageData;
 
-const aboutPageData: Record<Locale, AboutPageData> = {
+const accessibilityPageData: Record<Locale, AccessibilityPageData> = {
 	en,
 	sv,
 };
 
-export default aboutPageData;
+export default accessibilityPageData;
