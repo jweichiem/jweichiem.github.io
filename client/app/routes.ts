@@ -6,7 +6,10 @@ import {
 	stripLocaleFromPathname,
 	supportedLocales,
 } from '../i18n/index.tsx';
+import Accessibility from '../pages/accessibility/index.tsx';
 import About from '../pages/about/index.tsx';
+import Cv from '../pages/cv/index.tsx';
+import Engineering from '../pages/engineering/index.tsx';
 import Home from '../pages/home/index.tsx';
 import NotFound from '../pages/not-found/index.tsx';
 import { stripBasePath } from '../shared/base-path.ts';
@@ -67,6 +70,66 @@ const aboutRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
 	},
 };
 
+const engineeringRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
+	en: {
+		label: 'Engineering',
+		meta: {
+			title: 'Engineering | Joakim Weise-Chiem',
+			description:
+				'Architecture notes, engineering decisions, and quality standards behind this site.',
+		},
+	},
+	sv: {
+		label: 'Engineering',
+		meta: {
+			title: 'Engineering | Joakim Weise-Chiem',
+			description:
+				'Arkitekturnoter, tekniska beslut och kvalitetsnivåer bakom den här webbplatsen.',
+		},
+	},
+};
+
+const accessibilityRouteCopy: Record<
+	Locale,
+	{ label: string; meta: RouteMeta }
+> = {
+	en: {
+		label: 'Accessibility',
+		meta: {
+			title: 'Accessibility | Joakim Weise-Chiem',
+			description:
+				'Accessibility approach, implementation notes, and quality checks used on this site.',
+		},
+	},
+	sv: {
+		label: 'Tillgänglighet',
+		meta: {
+			title: 'Tillgänglighet | Joakim Weise-Chiem',
+			description:
+				'Tillgänglighetsstrategi, implementationsanteckningar och kvalitetskontroller som används på den här webbplatsen.',
+		},
+	},
+};
+
+const cvRouteCopy: Record<Locale, { label: string; meta: RouteMeta }> = {
+	en: {
+		label: 'CV',
+		meta: {
+			title: 'CV | Joakim Weise-Chiem',
+			description:
+				'Experience, selected impact, and core capabilities for Joakim Weise-Chiem.',
+		},
+	},
+	sv: {
+		label: 'CV',
+		meta: {
+			title: 'CV | Joakim Weise-Chiem',
+			description:
+				'Erfarenhet, utvalda resultat och kärnkompetenser för Joakim Weise-Chiem.',
+		},
+	},
+};
+
 const notFoundRouteCopy: Record<Locale, { meta: RouteMeta }> = {
 	en: {
 		meta: {
@@ -89,6 +152,30 @@ export const appRoutes: AppRoute[] = [
 		component: Home,
 		getLabel: (locale) => homeRouteCopy[locale].label,
 		getMeta: (locale) => homeRouteCopy[locale].meta,
+		prerender: true,
+	},
+	{
+		path: '/engineering',
+		page: 'engineering',
+		component: Engineering,
+		getLabel: (locale) => engineeringRouteCopy[locale].label,
+		getMeta: (locale) => engineeringRouteCopy[locale].meta,
+		prerender: true,
+	},
+	{
+		path: '/accessibility',
+		page: 'accessibility',
+		component: Accessibility,
+		getLabel: (locale) => accessibilityRouteCopy[locale].label,
+		getMeta: (locale) => accessibilityRouteCopy[locale].meta,
+		prerender: true,
+	},
+	{
+		path: '/cv',
+		page: 'cv',
+		component: Cv,
+		getLabel: (locale) => cvRouteCopy[locale].label,
+		getMeta: (locale) => cvRouteCopy[locale].meta,
 		prerender: true,
 	},
 	{

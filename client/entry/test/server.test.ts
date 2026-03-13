@@ -31,5 +31,16 @@ test('render returns swedish homepage content for /sv', async () => {
 });
 
 test('ssr prerender routes include localized swedish paths', () => {
-	expect(prerenderRoutes).toEqual(['/', '/sv', '/about', '/sv/about']);
+	expect(prerenderRoutes).toEqual([
+		'/',
+		'/sv',
+		'/engineering',
+		'/sv/engineering',
+		'/accessibility',
+		'/sv/accessibility',
+		'/cv',
+		'/sv/cv',
+		'/about',
+		'/sv/about',
+	]);
 });

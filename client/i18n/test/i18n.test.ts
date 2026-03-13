@@ -141,6 +141,24 @@ describe('localized route metadata', () => {
 			description:
 				'Läs mer om den här webbplatsen och arbetet bakom hur den byggdes.',
 		});
+
+		expect(getRouteMeta('/engineering', 'en')).toEqual({
+			title: 'Engineering | Joakim Weise-Chiem',
+			description:
+				'Architecture notes, engineering decisions, and quality standards behind this site.',
+		});
+
+		expect(getRouteMeta('/sv/accessibility', 'sv')).toEqual({
+			title: 'Tillgänglighet | Joakim Weise-Chiem',
+			description:
+				'Tillgänglighetsstrategi, implementationsanteckningar och kvalitetskontroller som används på den här webbplatsen.',
+		});
+
+		expect(getRouteMeta('/sv/cv', 'sv')).toEqual({
+			title: 'CV | Joakim Weise-Chiem',
+			description:
+				'Erfarenhet, utvalda resultat och kärnkompetenser för Joakim Weise-Chiem.',
+		});
 	});
 
 	test('creates translated head html', () => {
@@ -172,27 +190,51 @@ describe('localized route metadata', () => {
 describe('localized routes', () => {
 	test('matches localized routes against canonical route definitions', () => {
 		expect(resolveRoute('/sv').component).toBe(resolveRoute('/').component);
+		expect(resolveRoute('/sv/engineering').component).toBe(
+			resolveRoute('/engineering').component,
+		);
+		expect(resolveRoute('/sv/accessibility').component).toBe(
+			resolveRoute('/accessibility').component,
+		);
+		expect(resolveRoute('/sv/cv').component).toBe(
+			resolveRoute('/cv').component,
+		);
 		expect(resolveRoute('/sv/about').component).toBe(
 			resolveRoute('/about').component,
 		);
 	});
 
 	test('prerender routes include both english and swedish paths', () => {
-		expect(prerenderRoutes).toEqual(['/', '/sv', '/about', '/sv/about']);
+		expect(prerenderRoutes).toEqual([
+			'/',
+			'/sv',
+			'/engineering',
+			'/sv/engineering',
+			'/accessibility',
+			'/sv/accessibility',
+			'/cv',
+			'/sv/cv',
+			'/about',
+			'/sv/about',
+		]);
 	});
 
 	test('app tree derives locale from the current pathname', async () => {
 		await loadPageData('about', 'en');
 		await loadPageData('about', 'sv');
+		await loadPageData('engineering', 'en');
+		await loadPageData('engineering', 'sv');
 
 		const englishAppHtml = renderToString(
-			createAppTree({ pathname: '/about', search: '' }),
+			createAppTree({ pathname: '/engineering', search: '' }),
 		);
 		const swedishAppHtml = renderToString(
-			createAppTree({ pathname: '/sv/about', search: '' }),
+			createAppTree({ pathname: '/sv/engineering', search: '' }),
 		);
 
-		expect(englishAppHtml).toContain('About this website');
-		expect(swedishAppHtml).toContain('Om den här webbplatsen');
+		expect(englishAppHtml).toContain('Engineering');
+		expect(swedishAppHtml).toContain(
+			'Den här sidan visar hur webbplatsen är strukturerad',
+		);
 	});
 });
