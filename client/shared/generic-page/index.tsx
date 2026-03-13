@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import placeholder from '../../assets/placeholder.svg';
 import { useI18n } from '../../i18n/index.tsx';
 import ProfileBanner from '../profile-banner/index.tsx';
@@ -16,17 +17,20 @@ type GenericPageProps =
 	| {
 			layout: 'card';
 			pageData: CardLayoutPageData;
+			children?: ReactNode;
 	  }
 	| {
 			layout: 'entrypoint-card';
 			pageData: EntrypointCardLayoutPageData;
+			children?: never;
 	  }
 	| {
 			layout: 'cv';
 			pageData: CvPageData;
+			children?: never;
 	  };
 
-const GenericPage = ({ layout, pageData }: GenericPageProps) => {
+const GenericPage = ({ layout, pageData, children }: GenericPageProps) => {
 	const { locale } = useI18n();
 	const bannerData = pageBannerData[locale];
 	const profileBannerData = layout === 'cv' ? pageData.banner : bannerData;
@@ -52,7 +56,9 @@ const GenericPage = ({ layout, pageData }: GenericPageProps) => {
 				{layout === 'entrypoint-card' && (
 					<EntrypointCardLayout pageData={pageData} />
 				)}
-				{layout === 'card' && <CardLayout pageData={pageData} />}
+				{layout === 'card' && (
+					<CardLayout pageData={pageData}>{children}</CardLayout>
+				)}
 				{layout === 'cv' && <CvLayout pageData={pageData} />}
 			</div>
 		</div>

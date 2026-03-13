@@ -2,6 +2,7 @@ import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { registerAssets } from './config/production/registerAssets.ts';
+import { createSitemapXml } from './shared/sitemap.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '..');
@@ -53,3 +54,12 @@ const notFoundOutputPath = path.join(outputDir, '404.html');
 
 await writeFile(notFoundOutputPath, notFoundHtml, 'utf-8');
 console.log(`Prerendered ${notFoundRoute} -> ${notFoundOutputPath}`);
+
+const sitemapXml = createSitemapXml(routes, {
+	siteUrl: process.env.SITE_URL,
+	basePath: process.env.VITE_BASE_PATH,
+});
+const sitemapOutputPath = path.join(outputDir, 'sitemap.xml');
+
+await writeFile(sitemapOutputPath, sitemapXml, 'utf-8');
+console.log(`Generated sitemap -> ${sitemapOutputPath}`);

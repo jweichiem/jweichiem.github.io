@@ -1,12 +1,14 @@
+import type { ReactNode } from 'react';
 import PresentationalCard from '../../presentational-card/index.tsx';
 import type { CardLayoutPageData } from '../../types.ts';
 import './style.scss';
 
 interface CardLayoutProps {
 	pageData: CardLayoutPageData;
+	children?: ReactNode;
 }
 
-const CardLayout = ({ pageData }: CardLayoutProps) => {
+const CardLayout = ({ pageData, children }: CardLayoutProps) => {
 	return (
 		<div className="card-layout">
 			<section className="section card-layout__section">
@@ -36,6 +38,7 @@ const CardLayout = ({ pageData }: CardLayoutProps) => {
 					</div>
 				</section>
 			))}
+			{children}
 			{pageData.footnote && (
 				<section className="card-layout__section">
 					<p className="card-layout__footnote">
