@@ -69,23 +69,26 @@ const sv = {
 			title: 'Tester och granskningar',
 			cards: [
 				{
-					title: 'Kontroller jag förväntar mig att göra',
+					title: 'Kontroller som finns på plats',
 					description:
 						'Tillgänglighetskvalitet kräver både manuell granskning och automatiskt stöd.',
 					items: [
 						'Tangentbordsgranskning av primär navigation och interaktiva element.',
 						'Granskning av fokusmarkering.',
-						'Automatiserade tillgänglighetskontroller där de tillför värde.',
+						'Automatiserade tillgänglighetskontroller med Vitest och axe-core.',
 					],
 				},
 				{
-					title: 'Vad som bör bli mer synligt',
+					title: 'Sammanfattning av automatiserade tillgänglighetstester',
 					description:
-						'Webbplatsen bör med tiden visa mer konkret bevis på tillgänglighetsvalidering.',
+						'Den nuvarande automatiserade granskningen körs mot de prerenderade sidor som webbplatsen genererar.',
 					items: [
-						'En enkel sammanfattning av granskningar.',
-						'En kort not om manuella screen reader-kontroller.',
-						'En liten checklista för att lägga till nya sidor utan regressioner.',
+						'Kommando: npm run test:a11y.',
+						'Körmiljö: Vitest med jsdom och axe-core.',
+						'Täckning: alla 10 nuvarande SSG-routes på engelska och svenska.',
+						'Routes som täcks: /, /sv, /engineering, /sv/engineering, /accessibility, /sv/accessibility, /cv, /sv/cv, /about, /sv/about.',
+						'Nuvarande resultat: 10 av 10 route-kontroller passerade utan axe-överträdelser.',
+						'Notering: färgkontrast granskas fortfarande separat eftersom jsdom inte beräknar renderade färger på ett tillförlitligt sätt.',
 					],
 				},
 			],
