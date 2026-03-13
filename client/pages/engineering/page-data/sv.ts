@@ -114,6 +114,16 @@ const sv = {
 					],
 				},
 				{
+					title: 'Core Web Vitals',
+					description:
+						'För en applikation i den här storleken är Core Web Vitals viktiga, men inte särskilt svåra att hålla på en bra nivå.',
+					items: [
+						'Jag är medveten om code splitting och hur bundle-strategi blir viktiga verktyg när sidan växer.',
+						'Målet är att hålla leveransen av JavaScript och CSS medveten utan att överoptimera en relativt liten yta.',
+						'Allt arbete med bundle-storlek behöver fortfarande vägas mot övriga vitals, särskilt stabil rendering och responsiv interaktion.',
+					],
+				},
+				{
 					title: 'Vad jag skulle synliggöra härnäst',
 					description:
 						'Det finns utrymme att göra kvalitetshistorien mer synlig över tid.',

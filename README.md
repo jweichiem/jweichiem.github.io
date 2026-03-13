@@ -103,3 +103,6 @@ Personal website built with React on the frontend and Fastify on the backend, wi
 - Route metadata is generated from the route registry and applied in both client navigation and SSR output.
 - The header navigation is built from the route registry, while locale switching uses the current URL and rewrites it with `createLocalizedPath()`.
 - Static prerender routes default to the routes marked for prerendering in the app route registry.
+- `preact/compat` is no longer enabled by default. It can still be used as a bundle-size optimization, but it should be treated as an explicit alternative build strategy rather than the standard production path.
+- If you choose to use it again, re-add the required packages and restore the Vite aliasing for `react`, `react-dom`, and `wouter` to point at the Preact compatibility layer.
+- That optimization should only go to a real production environment after stricter validation than the default workflow. Test the exact production build you intend to ship and verify SSR output, hydration, navigation, and smoke-test coverage in a production-like environment first.

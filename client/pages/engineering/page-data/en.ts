@@ -114,6 +114,16 @@ const en = {
 					],
 				},
 				{
+					title: 'Core Web Vitals',
+					description:
+						'For an application of this size, Core Web Vitals are important but not especially difficult to keep in a healthy range.',
+					items: [
+						'I am aware of code splitting and bundle shaping as practical levers when the page grows.',
+						'The goal is to keep JavaScript and CSS delivery intentional without over-optimizing a relatively small surface area.',
+						'Any bundle-size work still has to be balanced against the rest of the vitals, especially stable rendering and responsive interaction.',
+					],
+				},
+				{
 					title: 'What I would extend next',
 					description:
 						'There is room to make the quality story more visible over time.',
